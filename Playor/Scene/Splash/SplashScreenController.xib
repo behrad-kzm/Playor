@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SignPainter.ttf">
+            <string>SignPainterHouseScript</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashScreenController" customModule="Playor" customModuleProvider="target">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c64-zg-XnM">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="fQC-0C-1gs">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrY-Wg-dDD">
+                            <rect key="frame" x="123" y="320" width="168" height="96"/>
+                            <fontDescription key="fontDescription" name="SignPainterHouseScript" family="SignPainter HouseScript" pointSize="80"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="DrY-Wg-dDD" firstAttribute="centerX" secondItem="fQC-0C-1gs" secondAttribute="centerX" id="662-H2-hdY"/>
+                        <constraint firstItem="fQC-0C-1gs" firstAttribute="top" secondItem="c64-zg-XnM" secondAttribute="top" id="RDl-uj-DGq"/>
+                        <constraint firstAttribute="trailing" secondItem="fQC-0C-1gs" secondAttribute="trailing" id="gW7-Da-THW"/>
+                        <constraint firstItem="fQC-0C-1gs" firstAttribute="leading" secondItem="c64-zg-XnM" secondAttribute="leading" id="mLM-rP-yYM"/>
+                        <constraint firstItem="DrY-Wg-dDD" firstAttribute="centerY" secondItem="fQC-0C-1gs" secondAttribute="centerY" id="mTb-75-KJ5"/>
+                        <constraint firstAttribute="bottom" secondItem="fQC-0C-1gs" secondAttribute="bottom" id="oPW-ew-kKP"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.013447112403810024" green="0.55726045370101929" blue="0.90194088220596313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="c64-zg-XnM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DhY-wz-4QF"/>
+                <constraint firstItem="c64-zg-XnM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Jz4-vm-CJf"/>
+                <constraint firstAttribute="bottom" secondItem="c64-zg-XnM" secondAttribute="bottom" id="dVz-7L-ELb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="c64-zg-XnM" secondAttribute="trailing" id="jdz-Wm-ZCF"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="background"/>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="132" y="154.27286356821591"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="LaunchImage" width="1491" height="1863"/>
+    </resources>
+</document>

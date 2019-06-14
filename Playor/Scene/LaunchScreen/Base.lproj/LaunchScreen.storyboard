@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SignPainter.ttf">
+            <string>SignPainterHouseScript</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImK-hJ-yuK">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="f88-hn-YM3">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2X-PY-pt1">
+                                        <rect key="frame" x="123" y="400" width="168" height="96"/>
+                                        <fontDescription key="fontDescription" name="SignPainterHouseScript" family="SignPainter HouseScript" pointSize="80"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="K2X-PY-pt1" firstAttribute="centerX" secondItem="f88-hn-YM3" secondAttribute="centerX" id="JYY-fb-NvA"/>
+                                    <constraint firstItem="K2X-PY-pt1" firstAttribute="centerY" secondItem="f88-hn-YM3" secondAttribute="centerY" id="OMn-hW-Gt6"/>
+                                    <constraint firstItem="f88-hn-YM3" firstAttribute="leading" secondItem="ImK-hJ-yuK" secondAttribute="leading" id="QAg-EZ-FB9"/>
+                                    <constraint firstAttribute="trailing" secondItem="f88-hn-YM3" secondAttribute="trailing" id="aAA-lD-nS8"/>
+                                    <constraint firstAttribute="bottom" secondItem="f88-hn-YM3" secondAttribute="bottom" id="ak8-Yk-ko5"/>
+                                    <constraint firstItem="f88-hn-YM3" firstAttribute="top" secondItem="ImK-hJ-yuK" secondAttribute="top" id="i7c-iW-60T"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ImK-hJ-yuK" secondAttribute="trailing" id="EUN-Vo-1RJ"/>
+                            <constraint firstItem="ImK-hJ-yuK" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="deu-ac-JD2"/>
+                            <constraint firstItem="ImK-hJ-yuK" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="eKu-pt-n6P"/>
+                            <constraint firstAttribute="bottom" secondItem="ImK-hJ-yuK" secondAttribute="bottom" id="qbh-sv-938"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LaunchImage" width="1491" height="1863"/>
+    </resources>
+</document>
