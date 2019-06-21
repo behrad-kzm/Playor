@@ -8,6 +8,7 @@
 
 import Foundation
 import AudioToolbox
+import Domain
 public struct AppEffectSounds {
 	public init() {}
 	public func playSound() {
@@ -16,6 +17,4 @@ public struct AppEffectSounds {
 		AudioServicesPlaySystemSound(sound)
 	}
 }
-public enum AppEffectSoundsType {
-	public static let splash = { return Bundle.main.url(forResource: "Splash", withExtension: "mp3")!}
-}
+

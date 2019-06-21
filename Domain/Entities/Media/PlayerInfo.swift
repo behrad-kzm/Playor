@@ -14,6 +14,7 @@ public struct PlayerInfo {
 	public let isShuffle: Bool
 	public let status: PlayerStatus
 	public let repeatMode: MPRepeatType
+	
 	public init(currentModel: Playable?, currentTime: TimeInterval, isShuffle: Bool, repeatMode: MPRepeatType, status: PlayerStatus){
 		self.currentModel = currentModel
 		self.currentTime = currentTime

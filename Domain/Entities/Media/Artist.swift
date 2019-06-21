@@ -10,20 +10,18 @@ import Foundation
 public struct Artist {
 	public let uid: Int
 	public let artworkID: Int
-	public let albumIDs: [Int]
-	public init(uid: Int, data: Data, albumIDs){
+	public let name: String
+	public let liked: Bool
+	
+	public init(uid: Int, name: String, artworkID: Int, liked: Bool){
 		self.uid = uid
-		self.data = data
+		self.name = name
+		self.artworkID = artworkID
+		self.liked = liked
 	}
 }
-extension Artwork: Equatable{
-	public static func == (lhs: Artwork, rhs: Artwork) -> Bool {
-		return lhs.uid == rhs.uid
+extension Artist: Equatable{
+	public static func == (lhs: Artist, rhs: Artist) -> Bool {
+		return lhs.name == rhs.name && lhs.uid == rhs.uid
 	}
 }
-
-
-+ artistID: Int
-+ artworkID: Int
-+ playlistIDs: [PlaylistID]
-+ name: String

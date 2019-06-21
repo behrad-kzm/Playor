@@ -43,7 +43,7 @@ class MainTabbarNavigator {
 		let playStageNavigator = PlayStageNavigator(services: services, soundServices: soundServices, navigationController: navigationController)
 		let playStageViewModel = PlayStageViewModel(navigator: playStageNavigator, playerUsecase: soundServices.makeToolbarUsecase())
 		let playStageViewController = PlayStageViewController(nibName: "PlayStageViewController", bundle: nil)
-		playStageViewController.viewModel = playStageViewModel
+//		playStageViewController.viewModel = playStageViewModel
 		
 		tabbarVC.viewControllers = [playStageViewController]
 		

@@ -13,5 +13,25 @@ import Realm
 final class RMAlbum: Object {
 	dynamic var uid = 0
 	dynamic var artistID = 0
-	dynamic var playlistID = 0
+	dynamic var artworkID = 0
+	dynamic var title = ""
+	dynamic var creationDate = Date()
+	dynamic var liked = false
+}
+extension RMAlbum: DomainConvertibleType {
+	func asDomain() -> Album {
+		return Album(uid: uid, artistID: artistID, title: title, creationDate: creationDate, artworkID: artworkID, liked: liked)
+	}
+}
+
+extension Album: RealmRepresentable {
+	func asRealm() -> RMAlbum {
+		return RMPlaylist.build { object in
+			object.uid = uid
+			object.artworkID = artworkID
+			object.title = title
+			object.liked = liked
+			object.creationDate = creationDate
+		}
+	}
 }

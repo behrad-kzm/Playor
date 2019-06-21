@@ -9,10 +9,12 @@
 import Foundation
 public struct Playable {
 	public let uid: Int
+	public let format: String
 	public let url: URL
 	public let source: DataSourceType = .local
-	public init(uid: Int, url: URL){
+	public init(uid: Int, url: URL, format: String){
 		self.uid = uid
+		self.format = format
 		self.url = url
 	}
 }

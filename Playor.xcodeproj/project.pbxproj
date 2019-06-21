@@ -32,7 +32,7 @@
 		1302451822BCC6030030AD23 /* Splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1302451622BCC6030030AD23 /* Splash.mp3 */; };
 		1302451B22BCCB3C0030AD23 /* MultipleSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302451A22BCCB3C0030AD23 /* MultipleSectionModel.swift */; };
 		1302452222BCFB6D0030AD23 /* StageFeatureBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302452122BCFB6D0030AD23 /* StageFeatureBannerViewModel.swift */; };
-		1302452D22BD036D0030AD23 /* TrackCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302452C22BD036D0030AD23 /* TrackCollection.swift */; };
+		1302452D22BD036D0030AD23 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302452C22BD036D0030AD23 /* Playlist.swift */; };
 		1302453222BD36A20030AD23 /* DataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302453122BD36A20030AD23 /* DataSourceType.swift */; };
 		1302453422BD37170030AD23 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302453322BD37170030AD23 /* Music.swift */; };
 		1302453722BD38760030AD23 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302453622BD38760030AD23 /* Artwork.swift */; };
@@ -46,6 +46,11 @@
 		1302454722BD57CA0030AD23 /* RMPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302454622BD57CA0030AD23 /* RMPlaylist.swift */; };
 		1302454922BD581E0030AD23 /* RMPlaylistTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302454822BD581E0030AD23 /* RMPlaylistTrack.swift */; };
 		1302454B22BD585B0030AD23 /* RMCollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302454A22BD585B0030AD23 /* RMCollectionList.swift */; };
+		1302454D22BD69100030AD23 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302454C22BD69100030AD23 /* Album.swift */; };
+		1302454F22BD69990030AD23 /* FeaturedCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302454E22BD69990030AD23 /* FeaturedCollections.swift */; };
+		1302455122BD81CB0030AD23 /* AppEffectSoundsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1302455022BD81CB0030AD23 /* AppEffectSoundsType.swift */; };
+		1302455322BD821E0030AD23 /* Error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1302455222BD821E0030AD23 /* Error.mp3 */; };
+		1302455422BD821E0030AD23 /* Error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1302455222BD821E0030AD23 /* Error.mp3 */; };
 		13075D9522B3BFE3000ED7AE /* SignPainter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 130A1B8722B3B77E00ED0CA6 /* SignPainter.ttf */; };
 		13075D9F22B3C792000ED7AE /* SoundsEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 13075D9D22B3C792000ED7AE /* SoundsEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13075DA222B3C792000ED7AE /* SoundsEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13075D9B22B3C792000ED7AE /* SoundsEngine.framework */; };
@@ -203,7 +208,7 @@
 		1302451622BCC6030030AD23 /* Splash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Splash.mp3; sourceTree = "<group>"; };
 		1302451A22BCCB3C0030AD23 /* MultipleSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSectionModel.swift; sourceTree = "<group>"; };
 		1302452122BCFB6D0030AD23 /* StageFeatureBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageFeatureBannerViewModel.swift; sourceTree = "<group>"; };
-		1302452C22BD036D0030AD23 /* TrackCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCollection.swift; sourceTree = "<group>"; };
+		1302452C22BD036D0030AD23 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		1302453122BD36A20030AD23 /* DataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceType.swift; sourceTree = "<group>"; };
 		1302453322BD37170030AD23 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		1302453622BD38760030AD23 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
@@ -217,6 +222,10 @@
 		1302454622BD57CA0030AD23 /* RMPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPlaylist.swift; sourceTree = "<group>"; };
 		1302454822BD581E0030AD23 /* RMPlaylistTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPlaylistTrack.swift; sourceTree = "<group>"; };
 		1302454A22BD585B0030AD23 /* RMCollectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCollectionList.swift; sourceTree = "<group>"; };
+		1302454C22BD69100030AD23 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		1302454E22BD69990030AD23 /* FeaturedCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCollections.swift; sourceTree = "<group>"; };
+		1302455022BD81CB0030AD23 /* AppEffectSoundsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEffectSoundsType.swift; sourceTree = "<group>"; };
+		1302455222BD821E0030AD23 /* Error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Error.mp3; sourceTree = "<group>"; };
 		13075D9B22B3C792000ED7AE /* SoundsEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SoundsEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13075D9D22B3C792000ED7AE /* SoundsEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundsEngine.h; sourceTree = "<group>"; };
 		13075D9E22B3C792000ED7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -586,7 +595,7 @@
 		1302452A22BD033C0030AD23 /* TrackCollection */ = {
 			isa = PBXGroup;
 			children = (
-				1302452C22BD036D0030AD23 /* TrackCollection.swift */,
+				1302452C22BD036D0030AD23 /* Playlist.swift */,
 			);
 			path = TrackCollection;
 			sourceTree = "<group>";
@@ -594,6 +603,7 @@
 		1302452B22BD03450030AD23 /* FeaturedCollection */ = {
 			isa = PBXGroup;
 			children = (
+				1302454E22BD69990030AD23 /* FeaturedCollections.swift */,
 			);
 			path = FeaturedCollection;
 			sourceTree = "<group>";
@@ -630,6 +640,7 @@
 			isa = PBXGroup;
 			children = (
 				13075DAB22B3D281000ED7AE /* PlayerStatus.swift */,
+				1302455022BD81CB0030AD23 /* AppEffectSoundsType.swift */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -642,6 +653,7 @@
 				1302453322BD37170030AD23 /* Music.swift */,
 				1302453622BD38760030AD23 /* Artwork.swift */,
 				1302453822BD40160030AD23 /* Artist.swift */,
+				1302454C22BD69100030AD23 /* Album.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -1075,6 +1087,7 @@
 		13AAFB7722B6EC4A00A76B12 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1302455222BD821E0030AD23 /* Error.mp3 */,
 				1302451622BCC6030030AD23 /* Splash.mp3 */,
 			);
 			path = Resources;
@@ -1310,6 +1323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1302455422BD821E0030AD23 /* Error.mp3 in Resources */,
 				1302451822BCC6030030AD23 /* Splash.mp3 in Resources */,
 				13075DB522B40FC8000ED7AE /* Test.mp3 in Resources */,
 			);
@@ -1320,6 +1334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1302450622BC0DBC0030AD23 /* FeatureBannerCell.xib in Resources */,
+				1302455322BD821E0030AD23 /* Error.mp3 in Resources */,
 				1302451722BCC6030030AD23 /* Splash.mp3 in Resources */,
 				13075DB722B41661000ED7AE /* Test.mp3 in Resources */,
 				13815BBC22B7A5AB000AB919 /* PlayStageViewController.xib in Resources */,
@@ -1585,7 +1600,7 @@
 				130244EA22BBA2160030AD23 /* RemoteUsecase.swift in Sources */,
 				1302453922BD40160030AD23 /* Artist.swift in Sources */,
 				130244E322BB9A240030AD23 /* ToolbarUsecase.swift in Sources */,
-				1302452D22BD036D0030AD23 /* TrackCollection.swift in Sources */,
+				1302452D22BD036D0030AD23 /* Playlist.swift in Sources */,
 				130244DF22BB6D7C0030AD23 /* SoundUsecaseProvider.swift in Sources */,
 				130244E722BBA02F0030AD23 /* PlayerInfo.swift in Sources */,
 				130A1B2622B252B800ED0CA6 /* TokenModel.swift in Sources */,
@@ -1593,10 +1608,13 @@
 				130A1B2122B2529F00ED0CA6 /* Constants.swift in Sources */,
 				13075DB022B3D3D8000ED7AE /* Playable.swift in Sources */,
 				130244E522BB9E490030AD23 /* FullPlayerUsecase.swift in Sources */,
+				1302455122BD81CB0030AD23 /* AppEffectSoundsType.swift in Sources */,
 				130A1B5C22B2835500ED0CA6 /* InteractiveModelType.swift in Sources */,
 				1302453222BD36A20030AD23 /* DataSourceType.swift in Sources */,
 				130A1B2A22B252CB00ED0CA6 /* IdNameModel.swift in Sources */,
+				1302454D22BD69100030AD23 /* Album.swift in Sources */,
 				130A1B2D22B2535E00ED0CA6 /* NetworkUseCaseProvider.swift in Sources */,
+				1302454F22BD69990030AD23 /* FeaturedCollections.swift in Sources */,
 				130A1B3022B2537200ED0CA6 /* AuthorizationUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
