@@ -1,7 +1,7 @@
 <img src="/headerPlayor.png">
 # Playor
 ## High level overview
-![](https://raw.githubusercontent.com/sergdort/CleanArchitectureRxSwift/master/Architecture/Modules.png)
+![]<img src="/headerPlayor.png">
 
 #### Domain 
 
