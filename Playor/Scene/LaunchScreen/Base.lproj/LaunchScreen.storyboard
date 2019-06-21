@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="SignPainter.ttf">
-            <string>SignPainterHouseScript</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -29,17 +24,9 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="f88-hn-YM3">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2X-PY-pt1">
-                                        <rect key="frame" x="123" y="400" width="168" height="96"/>
-                                        <fontDescription key="fontDescription" name="SignPainterHouseScript" family="SignPainter HouseScript" pointSize="80"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="K2X-PY-pt1" firstAttribute="centerX" secondItem="f88-hn-YM3" secondAttribute="centerX" id="JYY-fb-NvA"/>
-                                    <constraint firstItem="K2X-PY-pt1" firstAttribute="centerY" secondItem="f88-hn-YM3" secondAttribute="centerY" id="OMn-hW-Gt6"/>
                                     <constraint firstItem="f88-hn-YM3" firstAttribute="leading" secondItem="ImK-hJ-yuK" secondAttribute="leading" id="QAg-EZ-FB9"/>
                                     <constraint firstAttribute="trailing" secondItem="f88-hn-YM3" secondAttribute="trailing" id="aAA-lD-nS8"/>
                                     <constraint firstAttribute="bottom" secondItem="f88-hn-YM3" secondAttribute="bottom" id="ak8-Yk-ko5"/>
@@ -59,10 +46,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchImage" width="1491" height="1863"/>
+        <image name="LaunchImage" width="1312" height="2583"/>
     </resources>
 </document>

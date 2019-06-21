@@ -21,6 +21,10 @@ target 'Playor' do
   use_frameworks!
 	rx_cocoa
 	rx_swift
+	#UIPods
+	pod 'RxDataSources'
+	pod 'SABlurImageView'
+	pod 'RAMAnimatedTabBarController'
   # Pods for Playor
 
 end
@@ -30,7 +34,7 @@ target 'NetworkPlatform' do
 	rx_swift
 	pod 'Alamofire'
 	pod 'RxAlamofire'
-	pod 'RxStarscream'
+#	pod 'RxStarscream'
 	pod 'RxRealm'
 	pod 'RealmSwift'
 	pod 'Realm'
@@ -46,4 +50,10 @@ target 'RealmPlatform' do
 	pod 'QueryKit'
 	pod 'RealmSwift'
 	pod 'Realm'
+end
+target 'SoundsEngine' do
+	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+	use_frameworks!
+	rx_swift
+	rx_cocoa
 end

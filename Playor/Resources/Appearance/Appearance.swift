@@ -9,25 +9,8 @@
 import UIKit
 
 enum Appearance {
-	private enum hub {
-		private static let boldFontName = " " 	//[TODO]type bold font name here
-		private static let regularFontName = " "  //[TODO]type regular font name here
-		enum fonts {
-			enum Bold {
-				static let title = { return UIFont(name: boldFontName, size: 18)!}
-				static let subtitle = { return UIFont(name: boldFontName, size: 14)!}
-				static let middle = { return UIFont(name: boldFontName, size: 16)!}
-				static let header = { return UIFont(name: boldFontName, size: 20)!}
-				static let caption = { return UIFont(name: boldFontName, size: 12)!}
-			}
-			enum Regular {
-				static let title = { return UIFont(name: regularFontName, size: 16)!}
-				static let caption = { return UIFont(name: regularFontName, size: 14)!}
-			}
-			
-		}
-	}
-	enum colors {
+	
+	enum Colors {
 		
 		enum blue {
 		}
@@ -35,7 +18,8 @@ enum Appearance {
 		enum brown {
 		}
 		
-		enum red {
+		struct red {
+			static let remove = { return UIColor.red}
 		}
 		
 		enum green {
@@ -51,7 +35,7 @@ enum Appearance {
 		}
 		
 	}
-	enum gradients {
+	enum Gradients {
 		enum blueTone {
 		}
 		
@@ -59,27 +43,29 @@ enum Appearance {
 		}
 		
 		enum orangeTone {
-
+			
 		}
 	}
 	
-	enum fonts {
-		struct buttons {
-			static let defaultValue = { return Appearance.hub.fonts.Bold.subtitle()}
-			static let small = { return Appearance.hub.fonts.Bold.caption()}
-			
-			
+	struct Fonts {
+		struct Special {
+			static let logo = { return SpecialFonts.Regular.h1()}
+			static let cellTitle = { return SpecialFonts.Regular.h2()}
+			static let defaultValue = { return SpecialFonts.Regular.h2()}
 		}
+		struct Regular {
+			static let cellTitle = { return UIFont.systemFont(ofSize: 16, weight: .regular)}
+		}
+	}
+	
+}
+
+private enum SpecialFonts {
+	private static let regularFontName = "SignPainterHouseScript"  //[TODO]type regular font name here
+	enum Regular {
+		static let h1 = { return UIFont(name: regularFontName, size: 80)!}
+		static let h2 = { return UIFont(name: regularFontName, size: 40)!}
+		static let h3 = { return UIFont(name: regularFontName, size: 16)!}
 		
-		struct labels {
-			static let defaultValue = { return Appearance.hub.fonts.Bold.subtitle()}
-			static let title = { return Appearance.hub.fonts.Bold.title()}
-			static let boldBig = { return Appearance.hub.fonts.Bold.header()}
-			static let details = { return Appearance.hub.fonts.Bold.caption()}
-			static let mid = { return Appearance.hub.fonts.Bold.middle()}
-			static let subtitle = { return Appearance.hub.fonts.Bold.subtitle()}
-			static let detailedInfo = { return Appearance.hub.fonts.Regular.title()}
-			static let description = { return Appearance.hub.fonts.Regular.caption()}
-		}
 	}
 }

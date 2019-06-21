@@ -20,6 +20,8 @@
                 <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="backImageView" destination="fQC-0C-1gs" id="TW2-nW-KYf"/>
+                <outlet property="logoLabel" destination="DrY-Wg-dDD" id="C1a-Wf-IXr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,11 +33,11 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c64-zg-XnM">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="fQC-0C-1gs">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="fQC-0C-1gs" customClass="SABlurImageView" customModule="SABlurImageView">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrY-Wg-dDD">
-                            <rect key="frame" x="123" y="320" width="168" height="96"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrY-Wg-dDD">
+                            <rect key="frame" x="0.0" y="320" width="414" height="96"/>
                             <fontDescription key="fontDescription" name="SignPainterHouseScript" family="SignPainter HouseScript" pointSize="80"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -46,6 +48,7 @@
                         <constraint firstItem="DrY-Wg-dDD" firstAttribute="centerX" secondItem="fQC-0C-1gs" secondAttribute="centerX" id="662-H2-hdY"/>
                         <constraint firstItem="fQC-0C-1gs" firstAttribute="top" secondItem="c64-zg-XnM" secondAttribute="top" id="RDl-uj-DGq"/>
                         <constraint firstAttribute="trailing" secondItem="fQC-0C-1gs" secondAttribute="trailing" id="gW7-Da-THW"/>
+                        <constraint firstItem="DrY-Wg-dDD" firstAttribute="leading" secondItem="c64-zg-XnM" secondAttribute="leading" id="ke6-Cb-Rs0"/>
                         <constraint firstItem="fQC-0C-1gs" firstAttribute="leading" secondItem="c64-zg-XnM" secondAttribute="leading" id="mLM-rP-yYM"/>
                         <constraint firstItem="DrY-Wg-dDD" firstAttribute="centerY" secondItem="fQC-0C-1gs" secondAttribute="centerY" id="mTb-75-KJ5"/>
                         <constraint firstAttribute="bottom" secondItem="fQC-0C-1gs" secondAttribute="bottom" id="oPW-ew-kKP"/>
@@ -69,6 +72,6 @@
         </view>
     </objects>
     <resources>
-        <image name="LaunchImage" width="1491" height="1863"/>
+        <image name="LaunchImage" width="1312" height="2583"/>
     </resources>
 </document>

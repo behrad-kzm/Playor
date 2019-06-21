@@ -8,7 +8,7 @@
 import Foundation
 import Domain
 
-public final class UseCaseProvider: Domain.UseCaseProvider {
+public final class UseCaseProvider: Domain.NetworkUseCaseProvider {
     
     private let networkProvider: NetworkProvider
 

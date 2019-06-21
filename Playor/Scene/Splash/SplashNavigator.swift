@@ -8,25 +8,29 @@
 import Foundation
 import Domain
 class SplashNavigator {
-    
-    private let navigationController: UINavigationController
-    private let services: UseCaseProvider
-    init(navigationController: UINavigationController, services: UseCaseProvider) {
-        self.navigationController = navigationController
-        self.services = services
-    }
-    
-    func setup() {
-        let splashVC = SplashScreenController(nibName: "SplashScreenController", bundle: nil)
-        splashVC.viewModel = SplashViewModel(navigator: self)
-        navigationController.viewControllers = [splashVC]
-    }
-    
-    func toHome() {
-			
-    }
-    
-    func toOnboarding() {
-    }
-    
+	
+	private let navigationController: UINavigationController
+	private let services: NetworkUseCaseProvider
+	private let soundServices: SoundUsecaseProvider
+	init(navigationController: UINavigationController, services: NetworkUseCaseProvider, soundServices: SoundUsecaseProvider) {
+		self.navigationController = navigationController
+		self.services = services
+		self.soundServices = soundServices
+	}
+	
+	func setup() {
+		let splashVC = SplashScreenController(nibName: "SplashScreenController", bundle: nil)
+		splashVC.viewModel = SplashViewModel(navigator: self)
+		navigationController.viewControllers = [splashVC]
+	}
+	
+	func toHome() {
+		let tabbar = UITabBarController()
+		MainTabbarNavigator(services: services, soundServices: soundServices, navigationController: navigationController, tabbar: tabbar).setup()
+	}
+	
+	func toOnboarding() {
+		//		OnboardingNavigator(navigationController: navigationController, services: services).setup()
+	}
+	
 }

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9C80ADD9FE7FB4B0F522C1633744556"
+               BlueprintIdentifier = "3CFE4E6C483DADCCDA3640A75236B59B"
                BlueprintName = "QueryKit"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "QueryKit.framework">
