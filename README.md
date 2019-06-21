@@ -1,3 +1,3 @@
-<img src="https://github.com/behrad-kzm/Playor/blob/master/headerPlayor.png">
+<img src="/headerPlayor.png">
 # Playor
 Best Music player written for iOS
