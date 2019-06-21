@@ -1,7 +1,10 @@
 <img src="/headerPlayor.png">
+
 # Playor
+
 ## High level overview
-![]<img src="/headerPlayor.png">
+
+![]<img src="/HighLevelDiagram.png">
 
 #### Domain 
 
@@ -11,7 +14,9 @@ The `Domain` is basically what is the App about and what it can do (Entities, Us
 The `Platform` is a concrete implementation of the `Domain` in a specific platform like iOS. It does hide all implementation details.
 
 ##### RealmPlatform
+
 ##### NetworkPlatform
+
 ##### SoundEngine
 
 #### Application
