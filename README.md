@@ -4,7 +4,7 @@
 
 ## High level overview
 
-![]<img src="/HighLevelDiagram.png">
+![](https://github.com/behrad-kzm/Playor/blob/master/HighLevelDiagram.png)
 
 #### Domain 
 
