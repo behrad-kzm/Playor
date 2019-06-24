@@ -1,4 +1,4 @@
-<img src="https://drive.google.com/open?id=1aokhmH58opNDImM6CQrMfkPtuoN144_K">
+<img src="Githubres/Github_Header.png">
 
 # Playor
 
