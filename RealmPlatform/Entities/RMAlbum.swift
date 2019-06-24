@@ -17,6 +17,9 @@ final class RMAlbum: Object {
 	dynamic var title = ""
 	dynamic var creationDate = Date()
 	dynamic var liked = false
+	override static func primaryKey() -> String {
+		return "uid"
+	}
 }
 extension RMAlbum: DomainConvertibleType {
 	func asDomain() -> Album {

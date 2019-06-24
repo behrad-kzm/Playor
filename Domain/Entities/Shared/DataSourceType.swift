@@ -7,7 +7,9 @@
 //
 
 import Foundation
-public enum DataSourceType: Int {
+public enum DataSourceType: Int, Codable {
 	case local
+	case generated
+	case user
 	case server
 }

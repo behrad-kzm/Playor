@@ -15,6 +15,10 @@ final class RMArtist: Object {
 	dynamic var artworkID = 0
 	dynamic var name = ""
 	dynamic var liked = false
+	
+	override static func primaryKey() -> String {
+		return "uid"
+	}
 }
 extension RMArtist: DomainConvertibleType {
 	func asDomain() -> Artist {

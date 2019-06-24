@@ -14,7 +14,9 @@ final class RMPlayable: Object {
 	dynamic var uid = 0
 	dynamic var format = ""
 	dynamic var path = ""
-	
+	override static func primaryKey() -> String {
+		return "uid"
+	}
 }
 extension RMPlayable: DomainConvertibleType {
 	func asDomain() -> Playable {

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct Artwork {
+public struct Artwork: Codable {
 	public let uid: Int
 	public let data: Data
 	public init(uid: Int, data: Data){

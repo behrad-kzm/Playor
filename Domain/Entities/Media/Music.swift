@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct Music {
+public struct Music: ArtworkContainedProtocol, ArtistContainedProtocol, Codable {
 	public let uid: Int
 	public let artworkID: Int
 	public let artistID: Int

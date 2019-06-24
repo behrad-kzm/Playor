@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct Playable {
+public struct Playable: Codable {
 	public let uid: Int
 	public let format: String
 	public let url: URL

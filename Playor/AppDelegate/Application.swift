@@ -7,17 +7,17 @@
 
 import NetworkPlatform
 import Domain
-import SoundsEngine
+import SoundsPlatform
 
 final class Application {
   static let shared = Application()
   
   private let networkUseCaseProvider: NetworkPlatform.UseCaseProvider
-	private let soundsUseCaseProvider: SoundsEngine.UseCaseProvider
+	private let soundsUseCaseProvider: SoundsPlatform.UseCaseProvider
   private init() {
     AnalyticProxy.setup()
     self.networkUseCaseProvider = NetworkPlatform.UseCaseProvider()
-		self.soundsUseCaseProvider = SoundsEngine.UseCaseProvider()
+		self.soundsUseCaseProvider = SoundsPlatform.UseCaseProvider()
   }
   
   func configureMainInterface(in window: UIWindow) {

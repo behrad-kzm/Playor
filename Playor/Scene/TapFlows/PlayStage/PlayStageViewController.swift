@@ -23,7 +23,6 @@ import Differentiator
 			super.viewDidLoad()
 			let albumsFeature = MultipleSectionModel.FeatureListSection(title: "Albums", items: [SectionItem]())
 			let sections: [MultipleSectionModel] = [
-				,
 				.ToggleableSection(title: "Section 2",
 													 items: [.ToggleableSectionItem(title: "On", enabled: true)]),
 				.StepperableSection(title: "Section 3",

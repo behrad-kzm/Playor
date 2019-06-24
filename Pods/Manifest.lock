@@ -1,7 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
   - Differentiator (3.1.0)
-  - QueryKit (0.13.0)
   - RAMAnimatedTabBarController (5.0.0)
   - ReachabilitySwift (4.3.1)
   - Realm (3.15.0):
@@ -28,7 +27,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - QueryKit
   - RAMAnimatedTabBarController
   - ReachabilitySwift
   - Realm
@@ -44,7 +42,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Differentiator
-    - QueryKit
     - RAMAnimatedTabBarController
     - ReachabilitySwift
     - Realm
@@ -59,7 +56,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  QueryKit: 406c42b9b4eb5f8dab380a9e5bd9ef656542d1f4
   RAMAnimatedTabBarController: 6736db7bec2ec74d64059ee9cb40cb9bd281338e
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   Realm: 9b834e1be6062f544805252c812348872dc5d4ed
@@ -71,6 +67,6 @@ SPEC CHECKSUMS:
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SABlurImageView: 8640919c27208ada65e279ec17d7428408fedf89
 
-PODFILE CHECKSUM: 53451f2fb3f6561c8a6bc00e96340e733f01cf2c
+PODFILE CHECKSUM: 493f8d79eacda496a3cf9583eb4592daade4937f
 
 COCOAPODS: 1.5.3

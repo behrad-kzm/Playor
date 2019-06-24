@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct Artist {
+public struct Artist: ArtworkContainedProtocol, Codable {
 	public let uid: Int
 	public let artworkID: Int
 	public let name: String

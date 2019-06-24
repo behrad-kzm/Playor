@@ -14,4 +14,7 @@ final class RMPlaylistTrack: Object {
 	dynamic var uid = 0
 	dynamic var musicID = 0
 	dynamic var playlistID = 0
+	override static func primaryKey() -> String {
+		return "uid"
+	}
 }

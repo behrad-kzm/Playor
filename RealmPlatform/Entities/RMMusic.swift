@@ -22,6 +22,9 @@ final class RMMusic: Object {
 	dynamic var playCount = 0
 	dynamic var liked = false
 	dynamic var rate = 0.0
+	override static func primaryKey() -> String {
+		return "uid"
+	}
 }
 extension RMMusic: DomainConvertibleType {
 	func asDomain() -> Music {

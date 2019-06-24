@@ -9,7 +9,7 @@
 import Foundation
 import Foundation
 
-public struct Album {
+public struct Album: ArtworkContainedProtocol, ArtistContainedProtocol, Codable {
 	public let uid: Int
 	public let artworkID: Int
 	public let artistID: Int

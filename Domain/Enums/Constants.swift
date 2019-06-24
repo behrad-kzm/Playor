@@ -12,7 +12,7 @@ public enum Constants {
 	public enum Keys: String {
 		//MARK: - Schedulers name
 		case cacheSchedulerQueueName = "com.bekapps.Network.Cache.queue"
-		
+		case realmRepository = "com.bekapps.RealmPlatform.Repository"
 		//MARK: - Storage Keys
 		public enum Authentication: String {
 			case refreshToken = "com.bekapps.storagekeys.authentication.token.refresh"

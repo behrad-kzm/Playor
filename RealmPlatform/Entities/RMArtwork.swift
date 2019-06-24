@@ -13,7 +13,9 @@ import Realm
 final class RMArtwork: Object {
 	dynamic var uid = 0
 	dynamic var data = Data()
-
+	override static func primaryKey() -> String {
+		return "uid"
+	}
 }
 extension RMArtwork: DomainConvertibleType {
 	func asDomain() -> Artwork {

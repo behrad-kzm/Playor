@@ -7,7 +7,7 @@
 
 import UIKit
 import NetworkPlatform
-import SoundsEngine
+import SoundsPlatform
 import Domain
 import SABlurImageView
 class SplashScreenController: UIViewController {

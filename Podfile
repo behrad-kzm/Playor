@@ -7,6 +7,7 @@ end
 def rx_cocoa
 	pod 'RxCocoa', '~> 4.0'
 end
+
 target 'Domain' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
@@ -38,7 +39,6 @@ target 'NetworkPlatform' do
 	pod 'RxRealm'
 	pod 'RealmSwift'
 	pod 'Realm'
-	pod 'QueryKit'
 	# Pods for NetworkPlatform
 	
 end
@@ -47,11 +47,10 @@ target 'RealmPlatform' do
 	use_frameworks!
 	rx_swift
 	pod 'RxRealm'
-	pod 'QueryKit'
 	pod 'RealmSwift'
 	pod 'Realm'
 end
-target 'SoundsEngine' do
+target 'SoundsPlatform' do
 	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 	use_frameworks!
 	rx_swift

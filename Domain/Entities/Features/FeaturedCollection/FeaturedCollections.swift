@@ -7,13 +7,14 @@
 //
 
 import Foundation
-public struct FeaturedCollections {
+public struct FeaturedCollections: Codable {
 	public let uid: Int
 	public let artworkID: Int
 	public let title: String
 	public let creationDate: Date
-
-	public init(uid: Int, title: String, creationDate: Date, artworkID: Int){
+	public let source: DataSourceType
+	public init(uid: Int, title: String, creationDate: Date, artworkID: Int, source: DataSourceType = .generated){
+		self.source = source
 		self.uid = uid
 		self.creationDate = creationDate
 		self.artworkID = artworkID
