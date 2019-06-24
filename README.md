@@ -1,10 +1,10 @@
-<img src="/headerPlayor.png">
+<img src="Githubres/Github_Header.png">
 
 # Playor
 
 ## High level overview
 
-![](https://github.com/behrad-kzm/Playor/blob/master/HighLevelDiagram.png)
+![](https://drive.google.com/open?id=1Y18afwwCDOcP4JTAY5DW7ImRLPIxXEH4)
 
 #### Domain 
 
