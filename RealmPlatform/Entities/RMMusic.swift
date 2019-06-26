@@ -18,6 +18,8 @@ final class RMMusic: Object {
 	dynamic var artworkID = 0
 	dynamic var title = ""
 	dynamic var genre = ""
+	dynamic var albumName = ""
+	dynamic var artistName = ""
 	dynamic var creationDate = Date()
 	dynamic var playCount = 0
 	dynamic var liked = false
@@ -28,7 +30,7 @@ final class RMMusic: Object {
 }
 extension RMMusic: DomainConvertibleType {
 	func asDomain() -> Music {
-		return Music(uid: uid, title: title, genre: genre, artworkID: artworkID, artistID: artistID, playableID: playableID, creationDate: creationDate, playCount: playCount, albumID: albumID, rate: rate, liked: liked)
+		return Music(uid: uid, title: title, genre: genre, artworkID: artworkID, artistID: artistID, artistName: artistName, playableID: playableID, creationDate: creationDate, playCount: playCount, albumID: albumID, albumName: albumName, rate: rate, liked: liked)
 	}
 }
 
@@ -41,6 +43,8 @@ extension Music: RealmRepresentable {
 			object.playCount = playCount
 			object.playableID = playableID
 			object.albumID = albumID
+			object.albumName = albumName
+			object.artistName = artistName
 			object.title = title
 			object.genre = genre
 			object.rate = rate

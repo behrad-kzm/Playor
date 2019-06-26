@@ -27,8 +27,8 @@ target 'Playor' do
 	pod 'SABlurImageView'
 	pod 'RAMAnimatedTabBarController'
   # Pods for Playor
-
 end
+
 target 'NetworkPlatform' do
 	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 	use_frameworks!
@@ -42,6 +42,7 @@ target 'NetworkPlatform' do
 	# Pods for NetworkPlatform
 	
 end
+
 target 'RealmPlatform' do
 	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 	use_frameworks!
@@ -50,9 +51,28 @@ target 'RealmPlatform' do
 	pod 'RealmSwift'
 	pod 'Realm'
 end
+
 target 'SoundsPlatform' do
 	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 	use_frameworks!
 	rx_swift
 	rx_cocoa
+end
+
+target 'SuggestionPlatform' do
+	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+	use_frameworks!
+	rx_cocoa
+	rx_swift
+
+	# Pods for Playor
+end
+
+target 'AnalyticsPlatform' do
+	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+	use_frameworks!
+	rx_cocoa
+	rx_swift
+	
+	# Pods for Playor
 end

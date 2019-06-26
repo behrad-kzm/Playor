@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol DataBaseUsecaseProvider {
-	func makePlayStageUseCase() -> PlayStageUsecase
+	func makePlayStageUseCase(suggestion: SuggestionUsecase) -> PlayStageUsecase
 }
