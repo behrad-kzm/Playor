@@ -1,10 +1,10 @@
-<img src="Githubres/Github_Header.png">
+<img src="GithubRes/Github_Header.png">
 
 # Playor
 
 ## High level overview
 
-![](https://drive.google.com/open?id=1Y18afwwCDOcP4JTAY5DW7ImRLPIxXEH4)
+![](GithubRes/App_Architecture.png)
 
 #### Domain 
 
