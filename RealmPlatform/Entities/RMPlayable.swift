@@ -11,9 +11,10 @@ import RealmSwift
 import Realm
 
 final class RMPlayable: Object {
-	dynamic var uid = 0
+	dynamic var uid = UUID().uuidString
 	dynamic var format = ""
 	dynamic var path = ""
+	dynamic var source: DataSourceType = .local
 	override static func primaryKey() -> String {
 		return "uid"
 	}
@@ -26,5 +27,15 @@ extension RMPlayable: DomainConvertibleType {
 		let webSafeURL = "file:///private" + cleanPath.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
 		let playableURL = URL(string: webSafeURL) ?? Bundle.main.url(forResource: "Splash", withExtension: "mp3")!
 		return Playable(uid: uid, url: playableURL, format: format)
+	}
+}
+extension Playable: RealmRepresentable {
+	func asRealm() -> RMPlayable {
+		return RMPlayable.build { object in
+			object.uid = uid
+			object.format = format
+			object.path = url.absoluteString
+			object.source = source
+		}
 	}
 }

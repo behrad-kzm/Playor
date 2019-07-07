@@ -10,13 +10,13 @@ import Foundation
 import Foundation
 
 public struct Album: ArtworkContainedProtocol, ArtistContainedProtocol, Codable {
-	public let uid: Int
-	public let artworkID: Int
-	public let artistID: Int
+	public let uid: String
+	public let artworkID: String
+	public let artistID: String
 	public let title: String
 	public let creationDate: Date
 	public let liked: Bool
-	public init(uid: Int, artistID: Int, title: String, creationDate: Date, artworkID: Int, liked: Bool){
+	public init(uid: String, artistID: String, title: String, creationDate: Date, artworkID: String, liked: Bool){
 		self.uid = uid
 		self.creationDate = creationDate
 		self.artworkID = artworkID

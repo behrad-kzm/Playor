@@ -11,11 +11,11 @@ import RealmSwift
 import Realm
 
 final class RMMusic: Object {
-	dynamic var uid = 0
-	dynamic var playableID = 0
-	dynamic var artistID = 0
-	dynamic var albumID = 0
-	dynamic var artworkID = 0
+	dynamic var uid = UUID().uuidString
+	dynamic var playableID = UUID().uuidString
+	dynamic var artistID = UUID().uuidString
+	dynamic var albumID = UUID().uuidString
+	dynamic var artworkID = UUID().uuidString
 	dynamic var title = ""
 	dynamic var genre = ""
 	dynamic var albumName = ""

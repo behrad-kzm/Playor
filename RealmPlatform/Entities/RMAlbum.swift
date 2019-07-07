@@ -11,9 +11,9 @@ import RealmSwift
 import Realm
 
 final class RMAlbum: Object {
-	dynamic var uid = 0
-	dynamic var artistID = 0
-	dynamic var artworkID = 0
+	dynamic var uid = UUID().uuidString
+	dynamic var artistID = UUID().uuidString
+	dynamic var artworkID = UUID().uuidString
 	dynamic var title = ""
 	dynamic var creationDate = Date()
 	dynamic var liked = false

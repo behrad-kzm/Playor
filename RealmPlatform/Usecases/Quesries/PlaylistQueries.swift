@@ -52,7 +52,7 @@ public final class PlaylistQueries: Domain.PlaylistQueries {
 		return repository.queryAll()
 	}
 	
-	public func get(uid: Int) -> Observable<Playlist?> {
+	public func get(uid: String) -> Observable<Playlist?> {
 		return repository.object(forPrimaryKey: uid)
 	}
 	

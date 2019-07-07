@@ -9,9 +9,11 @@ public final class UseCaseProvider: DataBaseUsecaseProvider{
 
     public init(configuration: Realm.Configuration = Realm.Configuration()) {
         self.configuration = configuration
+			
     }
 	
 	public func makePlayStageUseCase(suggestion: Domain.SuggestionUsecase) -> Domain.PlayStageUsecase {
 		return	PlayStageUsecase(suggestion: suggestion)
 	}
+
 }

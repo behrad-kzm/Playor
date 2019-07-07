@@ -11,11 +11,12 @@ import RxSwift
 
 public protocol SuggestionUsecase {
 	
-	func suggest(CollectionByOption option: QueryOptions) -> Observable<[FeaturedCollections]>
-	func suggest(PlaylistByOption option: QueryOptions) -> Observable<[Playlist]>
-	func suggest(PlaylistByOption option: QueryOptions, byArtist artist: Artist) -> Observable<[Playlist]>
-	func suggest(ArtistByOption option: QueryOptions) -> Observable<[Artist]>
-	func suggest(AlbumsByOption option: QueryOptions) -> Observable<[Album]>
-	func suggest(AlbumsByOption option: QueryOptions, byArtist artist: Artist) -> Observable<[Album]>
-	func suggest(MusicByOption option: QueryOptions) -> Observable<[Music]>
+	func suggestCollection() -> Observable<FeaturedCollections>
+	func suggestWellRandomizedPlaylist() -> Observable<Playlist>
+	func suggestWellRandomizedPlaylist(byArtist artist: Artist) -> Observable<Playlist>
+	func suggestTopArtists() -> Observable<[Artist]>
+
+	func suggestRecentMusics() -> Observable<[Music]>
+	func getAlbums() -> Observable<[Album]>
+	func getAlbums(byArtist artist: Artist) -> Observable<[Album]>
 }

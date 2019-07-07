@@ -18,6 +18,6 @@ public protocol MusicQueries {
 	func addScore(model: Music, score: Double) -> Observable<Void>
 	func increasePlayCount(model: Music) -> Observable<Void>
 	func update(model: Music) -> Observable<Void>
-	func get(uid: Int) -> Observable<Music?>
+	func get(uid: String) -> Observable<Music?>
 	func search(with predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> Observable<[Music]>
 }

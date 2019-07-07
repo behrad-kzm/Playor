@@ -18,6 +18,6 @@ public protocol PlaylistQueries {
 	func increasePlayCount(model: Playlist) -> Observable<Void>
 	func update(model: Playlist) -> Observable<Void>
 	func getAll() -> Observable<[Playlist]>
-	func get(uid: Int) -> Observable<Playlist?>
+	func get(uid: String) -> Observable<Playlist?>
 	func search(with predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> Observable<[Playlist]>
 }

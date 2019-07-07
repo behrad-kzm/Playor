@@ -5,19 +5,23 @@
 //  Copyright © 2018 Behrad Kazemi. All rights reserved.
 //
 
-import NetworkPlatform
 import Domain
+import NetworkPlatform
 import SoundsPlatform
+import RealmPlatform
 
 final class Application {
   static let shared = Application()
   
   private let networkUseCaseProvider: NetworkPlatform.UseCaseProvider
 	private let soundsUseCaseProvider: SoundsPlatform.UseCaseProvider
+	private let realmUseCaseProvider: RealmPlatform.UseCaseProvider
+
   private init() {
     AnalyticProxy.setup()
     self.networkUseCaseProvider = NetworkPlatform.UseCaseProvider()
 		self.soundsUseCaseProvider = SoundsPlatform.UseCaseProvider()
+		self.realmUseCaseProvider = RealmPlatform.UseCaseProvider()
   }
   
   func configureMainInterface(in window: UIWindow) {

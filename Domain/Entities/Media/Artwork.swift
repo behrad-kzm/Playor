@@ -8,11 +8,13 @@
 
 import Foundation
 public struct Artwork: Codable {
-	public let uid: Int
-	public let data: Data
-	public init(uid: Int, data: Data){
+	public let uid: String
+	public let dataURL: URL
+	public let source: DataSourceType
+	public init(uid: String, dataURL: URL, source: DataSourceType = .local ){
 		self.uid = uid
-		self.data = data
+		self.dataURL = dataURL
+		self.source = source
 	}
 }
 extension Artwork: Equatable{

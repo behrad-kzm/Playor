@@ -55,7 +55,7 @@ final class Repository<T:RealmRepresentable>: AbstractRepository where T == T.Re
         }.subscribeOn(scheduler)
     }
 	
-	func object(forPrimaryKey key: Int) -> Observable<T?> {
+	func object(forPrimaryKey key: String) -> Observable<T?> {
 		return Observable.deferred {
 			let realm = self.realm
 			let object = realm.object(ofType: T.RealmType.self, forPrimaryKey: key)?.asDomain()
@@ -64,5 +64,13 @@ final class Repository<T:RealmRepresentable>: AbstractRepository where T == T.Re
 			.subscribeOn(scheduler)
 	}
 	
-	
+	func delete(forPrimaryKey key: String) -> Observable<Void> {
+		return Observable.deferred {
+			let realm = self.realm
+			if let object = realm.object(ofType: T.RealmType.self, forPrimaryKey: key)?.asDomain(){
+				return self.realm.rx.delete(entity: object)
+			}
+			return Observable<Void>.just(())
+			}.subscribeOn(scheduler)
+	}
 }

@@ -16,15 +16,14 @@ import Differentiator
 	class PlayStageViewController: UIViewController {
 		
 		@IBOutlet weak var tableView: UITableView!
-		
+		var viewModel: PlayStageViewModel!
 		let disposeBag = DisposeBag()
 		
 		override func viewDidLoad() {
 			super.viewDidLoad()
 			let albumsFeature = MultipleSectionModel.FeatureListSection(title: "Albums", items: [SectionItem]())
 			let sections: [MultipleSectionModel] = [
-				.ToggleableSection(title: "Section 2",
-													 items: [.ToggleableSectionItem(title: "On", enabled: true)]),
+				.FeatureListSection(title: <#T##String#>, items: [SectionItem])
 				.StepperableSection(title: "Section 3",
 														items: [.StepperSectionItem(title: "1")])
 			]
@@ -34,6 +33,10 @@ import Differentiator
 			Observable.just(sections)
 				.bind(to: tableView.rx.items(dataSource: dataSource))
 				.disposed(by: disposeBag)
+		}
+		
+		func bindData(){
+			
 		}
 	}
 	

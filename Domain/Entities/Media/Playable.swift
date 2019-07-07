@@ -8,11 +8,11 @@
 
 import Foundation
 public struct Playable: Codable {
-	public let uid: Int
+	public let uid: String
 	public let format: String
 	public let url: URL
 	public let source: DataSourceType = .local
-	public init(uid: Int, url: URL, format: String){
+	public init(uid: String, url: URL, format: String){
 		self.uid = uid
 		self.format = format
 		self.url = url

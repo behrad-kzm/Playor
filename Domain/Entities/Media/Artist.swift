@@ -8,12 +8,12 @@
 
 import Foundation
 public struct Artist: ArtworkContainedProtocol, Codable {
-	public let uid: Int
-	public let artworkID: Int
+	public let uid: String
+	public let artworkID: String
 	public let name: String
 	public let liked: Bool
 	
-	public init(uid: Int, name: String, artworkID: Int, liked: Bool){
+	public init(uid: String, name: String, artworkID: String, liked: Bool){
 		self.uid = uid
 		self.name = name
 		self.artworkID = artworkID

@@ -15,5 +15,6 @@ public protocol AbstractRepository {
 						 sortDescriptors: [NSSortDescriptor]) -> Observable<[T]>
 	func save(entity: T) -> Observable<Void>
 	func delete(entity: T) -> Observable<Void>
-	func object(forPrimaryKey key: Int) -> Observable<T?>
+	func object(forPrimaryKey key: String) -> Observable<T?>
+	func delete(forPrimaryKey key: String) -> Observable<Void>
 }

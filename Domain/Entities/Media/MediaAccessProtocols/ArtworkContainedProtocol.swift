@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol ArtworkContainedProtocol {
-	var artworkID: Int { get }
+	var artworkID: String { get }
 }

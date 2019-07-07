@@ -6,4 +6,16 @@
 //  Copyright © 2019 Behrad Kazemi. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import Domain
+final class StageFeatureBannerViewModel: FeatureBannerViewModelProtocol {
+	var title: String
+	
+	var backgroundImage: UIImage
+	
+
+	init(album: Album) {
+		self.title = album.title
+		self.backgroundImage
+	}
+}

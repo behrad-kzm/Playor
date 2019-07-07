@@ -11,12 +11,22 @@ import RxSwift
 import Domain
 
 public final class ArtworkQueries: Domain.ArtworkQueries {
+	public func getPlaceHolder(type: ArtworkPlaceholderType, random: Bool) -> Observable<Artwork> {
+		let predicate = NSPredicate(format: "uid BEGINSWITH[c] %@", type.rawValue)
+		let objects = repository.query(with: predicate)
+		return objects.map({ (artworks) -> Artwork? in
+			if random {
+				return artworks.randomElement()
+			}
+			return artworks.first
+		}).filter{$0 != nil}.map{$0!}
+	}
 	
 	private let repository: Repository<Artwork>
 	init(repository: Repository<Artwork>) {
 		self.repository = repository
 	}
-
+	
 	public func add(model: Artwork) -> Observable<Void> {
 		return repository.save(entity: model)
 	}
@@ -32,8 +42,4 @@ public final class ArtworkQueries: Domain.ArtworkQueries {
 	public func get(model: ArtworkContainedProtocol) -> Observable<Artwork?> {
 		return repository.object(forPrimaryKey: model.artworkID)
 	}
-	
-	
-
-	
 }

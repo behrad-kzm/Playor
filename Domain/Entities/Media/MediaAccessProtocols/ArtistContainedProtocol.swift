@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol ArtistContainedProtocol {
-	var artistID: Int { get }
+	var artistID: String { get }
 }

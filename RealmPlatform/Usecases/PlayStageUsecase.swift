@@ -19,16 +19,16 @@ public final class PlayStageUsecase: Domain.PlayStageUsecase {
 	
 	public func getDataModel() -> Observable<PlayStageDataModel.Response> {
 		
-		let albums = suggestion.suggest(AlbumsByOption: .all)
-		let playlistForUser = suggestion.suggest(PlaylistByOption: .wellRandom).map{$0.first}
-		let greatestHitsOfArtists = suggestion.suggest(ArtistByOption: .best).flatMapLatest { (artists) -> Observable<[Playlist]> in
+		let albums = suggestion.getAlbums()
+		let playlistForUser = suggestion.suggestWellRandomizedPlaylist()
+		let greatestHitsOfArtists = suggestion.suggestTopArtists().flatMapLatest { (artists) -> Observable<[Playlist]> in
 			let playlistArray =  artists.map({ (artist) -> Observable<Playlist> in
-				return self.suggestion.suggest(PlaylistByOption: .best, byArtist: artist).map{$0.first}.filter{$0 != nil}.map{$0!}
+				return self.suggestion.suggestWellRandomizedPlaylist(byArtist: artist)
 			})
 			let merged = Observable.combineLatest(playlistArray) { $0 }
 			return merged
 		}
-    let recentlyMusics = suggestion.suggest(MusicByOption: .recent)
+    let recentlyMusics = suggestion.suggestRecentMusics()
 		let response = Observable.combineLatest(albums, playlistForUser, recentlyMusics, greatestHitsOfArtists).map { (arg) -> PlayStageDataModel.Response in
 			
 			let (albums, forYou, recent, greatestHits) = arg
@@ -38,19 +38,19 @@ public final class PlayStageUsecase: Domain.PlayStageUsecase {
 	}
 	
 	public func track(music: Music) -> Observable<Void> {
-		<#code#>
+		return Observable.just(())
 	}
 	
 	public func track(playlist: Playlist) -> Observable<Void> {
-		<#code#>
+		return Observable.just(())
 	}
 	
 	public func track(album: Album) -> Observable<Void> {
-		<#code#>
+		return Observable.just(())
 	}
 	
 	public func track(collection: FeaturedCollections) -> Observable<Void> {
-		<#code#>
+		return Observable.just(())
 	}
 	
 }

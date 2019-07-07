@@ -11,15 +11,16 @@ import RealmSwift
 import Realm
 
 final class RMArtwork: Object {
-	dynamic var uid = 0
-	dynamic var data = Data()
+	dynamic var uid = UUID().uuidString
+	dynamic var dataURL = ""
+	dynamic var source: DataSourceType = .local
 	override static func primaryKey() -> String {
 		return "uid"
 	}
 }
 extension RMArtwork: DomainConvertibleType {
 	func asDomain() -> Artwork {
-		return Artwork(uid: uid, data: data)
+		return Artwork(uid: uid, dataURL: URL(string: dataURL)!, source: source)
 	}
 }
 
@@ -27,7 +28,8 @@ extension Artwork: RealmRepresentable {
 	func asRealm() -> RMArtwork {
 		return RMArtwork.build { object in
 			object.uid = uid
-			object.data = data
+			object.source = source
+			object.dataURL = dataURL.absoluteString
 		}
 	}
 }

@@ -11,8 +11,8 @@ import RealmSwift
 import Realm
 
 final class RMArtist: Object {
-	dynamic var uid = 0
-	dynamic var artworkID = 0
+	dynamic var uid = UUID().uuidString
+	dynamic var artworkID = UUID().uuidString
 	dynamic var name = ""
 	dynamic var liked = false
 	

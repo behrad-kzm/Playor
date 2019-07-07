@@ -8,11 +8,11 @@
 
 import Foundation
 public struct Music: ArtworkContainedProtocol, ArtistContainedProtocol, Codable {
-	public let uid: Int
-	public let artworkID: Int
-	public let artistID: Int
-	public let albumID: Int
-	public let playableID: Int
+	public let uid: String
+	public let artworkID: String
+	public let artistID: String
+	public let albumID: String
+	public let playableID: String
 	public let title: String
 	public let albumName: String
 	public let genre: String
@@ -21,16 +21,16 @@ public struct Music: ArtworkContainedProtocol, ArtistContainedProtocol, Codable 
 	public let rate: Double
 	public let liked: Bool
 	public let artistName: String
-	public init(uid: Int,
+	public init(uid: String,
 							title: String,
 							genre: String,
-							artworkID: Int,
-							artistID: Int,
+							artworkID: String,
+							artistID: String,
 							artistName: String,
-							playableID: Int,
+							playableID: String,
 							creationDate: Date,
 							playCount: Int,
-							albumID: Int,
+							albumID: String,
 							albumName: String,
 							rate: Double,
 							liked: Bool) {

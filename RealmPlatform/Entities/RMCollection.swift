@@ -11,8 +11,8 @@ import RealmSwift
 import Realm
 
 final class RMCollection: Object {
-	dynamic var uid = 0
-	dynamic var artworkID = 0
+	dynamic var uid = UUID().uuidString
+	dynamic var artworkID = UUID().uuidString
 	dynamic var title = ""
 	dynamic var creationDate = Date()
 	dynamic var source: DataSourceType = .generated

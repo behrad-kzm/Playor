@@ -13,5 +13,6 @@ public protocol ArtworkQueries {
 	func add(model: Artwork) -> Observable<Void>
 	func delete(model: Artwork) -> Observable<Void>
 	func update(model: Artwork) -> Observable<Void>
+	func getPlaceHolder(type: ArtworkPlaceholderType, random: Bool) -> Observable<Artwork>
 	func get(model: ArtworkContainedProtocol) -> Observable<Artwork?>
 }

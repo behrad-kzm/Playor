@@ -40,7 +40,7 @@ public class SoundPlayer: NSObject, AVAudioPlayerDelegate {
 	}
 	private(set) var currentObs: BehaviorSubject<Playable?>!
 	private(set) var statusObs: BehaviorSubject<PlayerStatus>!
-	private(set) var playingAudios: [Playable]!
+	private(set) var playingAudios: [Playable]!//because if you had shuffle mode you can able to do the action of 'previous' or you can see the exact upnext songs then you turning off the suffle the exact previous order of audios will restore
 	private(set) var audios: [Playable]! {
 		didSet {
 			playingAudios = audios

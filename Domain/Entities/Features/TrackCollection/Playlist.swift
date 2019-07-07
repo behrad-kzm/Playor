@@ -9,15 +9,15 @@
 import Foundation
 
 public struct Playlist: ArtworkContainedProtocol, Codable {
-	public let uid: Int
-	public let artworkID: Int
+	public let uid: String
+	public let artworkID: String
 	public let title: String
 	public let creationDate: Date
 	public let liked: Bool
 	public let rate: Double
 	public let playCount: Int
 	public let source: DataSourceType
-	public init(uid: Int, rate: Double, title: String, creationDate: Date, artworkID: Int, liked: Bool, playCount: Int, source: DataSourceType = .generated){
+	public init(uid: String, rate: Double, title: String, creationDate: Date, artworkID: String, liked: Bool, playCount: Int, source: DataSourceType = .generated){
 		self.source = source
 		self.uid = uid
 		self.creationDate = creationDate
