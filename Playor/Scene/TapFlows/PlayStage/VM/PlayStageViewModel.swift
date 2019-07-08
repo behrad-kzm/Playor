@@ -29,7 +29,7 @@ final class PlayStageViewModel: ViewModelType {
 			let albums = response.albums.compactMap({ (albumItem) -> SectionItem in
 				SectionItem.FeatureSectionItem(viewModel: StageFeatureBannerViewModel(album: albumItem))
 			})
-			let albumsFeature = MultipleSectionModel.FeatureListSection(title: "Albums", items: [SectionItem])
+			let albumsFeature = MultipleSectionModel.FeatureListSection(title: "Albums", items: albums)
 		}
 		return Output(isFetching: <#T##Driver<Bool>#>, collections: <#T##Driver<[MultipleSectionModel]>#>, error: <#T##Driver<Error>#>)
 	}

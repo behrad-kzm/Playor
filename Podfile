@@ -25,6 +25,7 @@ target 'Playor' do
 	#UIPods
 	pod 'RxDataSources'
 	pod 'SABlurImageView'
+	pod 'SDWebImage', '~> 5.0'
 	pod 'RAMAnimatedTabBarController'
   # Pods for Playor
 end

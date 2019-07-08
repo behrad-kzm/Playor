@@ -8,14 +8,14 @@
 
 import UIKit
 import Domain
+
 final class StageFeatureBannerViewModel: FeatureBannerViewModelProtocol {
 	var title: String
-	
 	var backgroundImage: UIImage
-	
-
-	init(album: Album) {
+	let album: Album
+	let artwork: Artwork
+	init(album: Album, artwork: Artwork) {
 		self.title = album.title
-		self.backgroundImage
+		self.backgroundImage = UIImage(
 	}
 }

@@ -10,4 +10,5 @@ import UIKit
 protocol FeatureBannerViewModelProtocol {
 	var title: String { get }
 	var backgroundImage: UIImage { get }
+	func loadImage
 }
