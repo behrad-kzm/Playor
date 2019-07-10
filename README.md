@@ -5,8 +5,11 @@
 ## High level overview
 
 ![](GithubRes/App_Architecture.png)
+
 ## ERD
+
 ![](GithubRes/RealmERD.png)
+
 (This model naming is more suitable for mobile app projects.)
 
 #### Domain 
