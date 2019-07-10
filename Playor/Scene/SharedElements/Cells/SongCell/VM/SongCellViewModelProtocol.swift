@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Domain
 protocol SongCellViewModelProtocol {
 	var title: String { get }
-	var image: UIImage { get }
+	var backgroundArtwork: Artwork { get }
+	var model: Music { get }
 }

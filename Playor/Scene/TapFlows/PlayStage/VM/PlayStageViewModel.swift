@@ -25,13 +25,46 @@ final class PlayStageViewModel: ViewModelType {
 	}
 	
 	func transform(input: Input) -> Output {
-		let collections = dataUsecase.getDataModel().map {(response) -> [MultipleSectionModel] in
-			let albums = response.albums.compactMap({ (albumItem) -> SectionItem in
-				SectionItem.FeatureSectionItem(viewModel: StageFeatureBannerViewModel(album: albumItem))
+		let errorTracker = ErrorTracker()
+		let fetchingTracker = ActivityIndicator()
+		let collections = dataUsecase.getDataModel().trackError(errorTracker).trackActivity(fetchingTracker).flatMapLatest {[unowned self](response) -> Observable<[MultipleSectionModel]> in
+			let albumSection = self.dataUsecase.toArtwork(items: response.albums).map({ (artworks) -> [SectionItem] in
+				return zip(artworks, response.albums).map({ (artwork, album) -> SectionItem in
+					return SectionItem.FeatureSectionItem(viewModel: StageAlbumFeatureBannerViewModel(album: album, artwork: artwork))
+				})
 			})
-			let albumsFeature = MultipleSectionModel.FeatureListSection(title: "Albums", items: albums)
+			
+			let recentSection = self.dataUsecase.toArtwork(items: response.recent).map({ (artworks) -> [SectionItem] in
+				return zip(artworks, response.recent).map({ (artwork,music) -> SectionItem in
+					return SectionItem.TrackSectionItem(viewModel: CommonSongCellVM(Music: music, artwork: artwork))
+				})
+			})
+			
+			let bestOfArtistsSection = self.dataUsecase.toArtwork(items: response.bestOfArtists).map({ (artworks) -> [SectionItem] in
+				return zip(artworks, response.bestOfArtists).map({ (artwork,playlist) -> SectionItem in
+					return SectionItem.FeatureSectionItem(viewModel: StagePlaylistFeatureBannerViewModel(playlist: playlist, artwork: artwork))
+				})
+			})
+			var sections = Observable.combineLatest(albumSection,recentSection,bestOfArtistsSection).map({ (albums,recents,bestsOfArtists) -> [MultipleSectionModel] in
+				return [MultipleSectionModel.FeatureListSection(title: "Albums", items: albums),
+									 MultipleSectionModel.TrackListSection(title: "recently Added", items: recents),
+									 MultipleSectionModel.FeatureListSection(title: "Best Of Artists", items: bestsOfArtists)]
+			})
+			if let forYouPlaylist = response.forYou {
+				let forYouSection = self.dataUsecase.toArtwork(items: forYouPlaylist).map({ (artworks) -> [SectionItem] in
+					return zip(artworks, forYouPlaylist).map({ (artwork,playlist) -> SectionItem in
+						return SectionItem.FeatureSectionItem(viewModel: StagePlaylistFeatureBannerViewModel(playlist: playlist, artwork: artwork))
+					})
+				})
+				
+				return sections.map({ (items) -> [MultipleSectionModel] in
+					var resultArray = items
+					resultArray.append(MultipleSectionModel.TrackListSection(title: "Picked For You", items: <#T##[SectionItem]#>))
+				})
+			}
+			return
 		}
-		return Output(isFetching: <#T##Driver<Bool>#>, collections: <#T##Driver<[MultipleSectionModel]>#>, error: <#T##Driver<Error>#>)
+		return Output(isFetching: fetchingTracker.asDriver(), collections: collections.asDriverOnErrorJustComplete(), error: errorTracker.asDriver())
 	}
 }
 extension PlayStageViewModel {

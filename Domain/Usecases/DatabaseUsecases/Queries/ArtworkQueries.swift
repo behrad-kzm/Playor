@@ -15,4 +15,5 @@ public protocol ArtworkQueries {
 	func update(model: Artwork) -> Observable<Void>
 	func getPlaceHolder(type: ArtworkPlaceholderType, random: Bool) -> Observable<Artwork>
 	func get(model: ArtworkContainedProtocol) -> Observable<Artwork?>
+	func search(with predicate: NSPredicate) -> Observable<[Artwork]>
 }

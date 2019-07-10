@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import Domain
 protocol FeatureBannerViewModelProtocol {
+	typealias T = BannerListType
 	var title: String { get }
-	var backgroundImage: UIImage { get }
-	func loadImage
+	var backgroundArtwork: Artwork { get }
+	var model: T { get }
+}
+enum BannerListType {
+	typealias playlist = Playlist
+	typealias album = Album
 }

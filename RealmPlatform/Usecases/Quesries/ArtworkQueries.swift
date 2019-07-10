@@ -42,4 +42,7 @@ public final class ArtworkQueries: Domain.ArtworkQueries {
 	public func get(model: ArtworkContainedProtocol) -> Observable<Artwork?> {
 		return repository.object(forPrimaryKey: model.artworkID)
 	}
+	public func search(with predicate: NSPredicate) -> Observable<[Artwork]>{
+		return repository.query(with: predicate)
+	}
 }

@@ -14,10 +14,10 @@ public enum PlayStageDataModel: InteractiveModelType {
 	public struct Response: Codable {
 		//[TODO] make this respose dynamic collectionModel
 		public let albums: [Album]
-		public let forYou: Playlist?
+		public let forYou: [Music]
 		public let recent: [Music]
 		public let bestOfArtists: [Playlist]
-		public init(albums: [Album], forYou: Playlist?, recent: [Music], bestOfArtists: [Playlist]) {
+		public init(albums: [Album], forYou: [Music], recent: [Music], bestOfArtists: [Playlist]) {
 			self.albums = albums
 			self.forYou = forYou
 			self.recent = recent
