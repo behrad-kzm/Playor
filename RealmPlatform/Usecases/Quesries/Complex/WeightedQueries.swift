@@ -95,6 +95,9 @@ public final class WeightedQueries: Domain.WeightedQueries {
 		})
 		let probabilities = probabilitiesTuple.map{$0.1}
 		let sum = probabilities.reduce(0, +)
+		if sum == 0 {
+			return ""
+		}
 		var randomIndex = 0
 		let rnd = Float.random(in: 0.0 ..< sum)
 		var accum: Float = 0.0
@@ -110,7 +113,7 @@ public final class WeightedQueries: Domain.WeightedQueries {
 		return randomID
 	}
 	public func topArtitst(maxCount: Int) -> Observable<[Artist]> {
-		return Observable.deferred { [unowned self] in
+		return Observable.deferred { 
 			let realm = self.realm
 			let objects = realm.objects(RMArtist.self).compactMap { (artist) -> (RMArtist,Double) in
 				let artistPredicate = NSPredicate(format: "artistID = %@", artist.uid)
