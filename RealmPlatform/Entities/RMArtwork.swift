@@ -11,8 +11,8 @@ import RealmSwift
 import Realm
 
 final class RMArtwork: Object {
-	dynamic var uid = UUID().uuidString
-	dynamic var dataURL = ""
+	@objc dynamic var uid = UUID().uuidString
+	@objc dynamic var dataURL = ""
 	dynamic var source: DataSourceType = .local
 	override static func primaryKey() -> String {
 		return "uid"

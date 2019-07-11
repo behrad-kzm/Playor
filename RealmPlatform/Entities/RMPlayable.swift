@@ -11,9 +11,9 @@ import RealmSwift
 import Realm
 
 final class RMPlayable: Object {
-	dynamic var uid = UUID().uuidString
-	dynamic var format = ""
-	dynamic var path = ""
+	@objc dynamic var uid = UUID().uuidString
+	@objc dynamic var format = ""
+	@objc dynamic var path = ""
 	dynamic var source: DataSourceType = .local
 	override static func primaryKey() -> String {
 		return "uid"

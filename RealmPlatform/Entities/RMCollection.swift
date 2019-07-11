@@ -11,10 +11,10 @@ import RealmSwift
 import Realm
 
 final class RMCollection: Object {
-	dynamic var uid = UUID().uuidString
-	dynamic var artworkID = UUID().uuidString
-	dynamic var title = ""
-	dynamic var creationDate = Date()
+	@objc dynamic var uid = UUID().uuidString
+	@objc dynamic var artworkID = UUID().uuidString
+	@objc dynamic var title = ""
+	@objc dynamic var creationDate = Date()
 	dynamic var source: DataSourceType = .generated
 	override static func primaryKey() -> String {
 		return "uid"

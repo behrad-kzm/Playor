@@ -11,9 +11,9 @@ import RealmSwift
 import Realm
 
 final class RMCollectionList: Object {
-	dynamic var uid = UUID().uuidString
-	dynamic var collectionID = UUID().uuidString
-	dynamic var playlistID = UUID().uuidString
+	@objc dynamic var uid = UUID().uuidString
+	@objc dynamic var collectionID = UUID().uuidString
+	@objc dynamic var playlistID = UUID().uuidString
 	override static func primaryKey() -> String {
 		return "uid"
 	}

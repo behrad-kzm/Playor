@@ -11,13 +11,13 @@ import RealmSwift
 import Realm
 
 final class RMPlaylist: Object {
-	dynamic var uid = UUID().uuidString
-	dynamic var artworkID = UUID().uuidString
-	dynamic var title = ""
-	dynamic var creationDate = Date()
-	dynamic var liked = false
-	dynamic var rate = 0.0
-	dynamic var playCount = 0
+	@objc dynamic var uid = UUID().uuidString
+	@objc dynamic var artworkID = UUID().uuidString
+	@objc dynamic var title = ""
+	@objc dynamic var creationDate = Date()
+	@objc dynamic var liked = false
+	@objc dynamic var rate = 0.0
+	@objc dynamic var playCount = 0
 	dynamic var source: DataSourceType = .generated
 	override static func primaryKey() -> String {
 		return "uid"

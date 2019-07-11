@@ -11,10 +11,10 @@ import RealmSwift
 import Realm
 
 final class RMArtist: Object {
-	dynamic var uid = UUID().uuidString
-	dynamic var artworkID = UUID().uuidString
-	dynamic var name = ""
-	dynamic var liked = false
+	@objc dynamic var uid = UUID().uuidString
+	@objc dynamic var artworkID = UUID().uuidString
+	@objc dynamic var name = ""
+	@objc dynamic var liked = false
 	
 	override static func primaryKey() -> String {
 		return "uid"
