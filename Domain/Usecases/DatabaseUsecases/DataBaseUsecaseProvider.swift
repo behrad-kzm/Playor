@@ -10,5 +10,6 @@ import Foundation
 import RxSwift
 
 public protocol DataBaseUsecaseProvider {
+	func makeQueryManager() -> QueryManager
 	func makePlayStageUseCase(suggestion: SuggestionUsecase) -> PlayStageUsecase
 }
