@@ -11,4 +11,5 @@ public protocol SoundUsecaseProvider {
 	func makeToolbarUsecase() -> ToolbarUsecase
 	func makeFullPlayerUsecase() -> FullPlayerUsecase
 	func makeRemoteUsecase() -> RemoteUsecase
+	func makeAudioFileHandler() -> AudioFileHandler
 }

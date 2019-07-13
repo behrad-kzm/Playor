@@ -34,7 +34,7 @@ extension Playable: RealmRepresentable {
 		return RMPlayable.build { object in
 			object.uid = uid
 			object.format = format
-			object.path = url.absoluteString
+			object.path = url.lastPathComponent
 			object.source = source
 		}
 	}

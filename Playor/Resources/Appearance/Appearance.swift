@@ -50,7 +50,7 @@ enum Appearance {
 	struct Fonts {
 		struct Special {
 			static let logo = { return SpecialFonts.Regular.h1()}
-			static let cellTitle = { return SpecialFonts.Regular.h2()}
+			static let cellTitle = { return SpecialFonts.SemiBold.h2()}
 			static let defaultValue = { return SpecialFonts.Regular.h2()}
 		}
 		struct Regular {
@@ -66,6 +66,10 @@ private enum SpecialFonts {
 		static let h1 = { return UIFont(name: regularFontName, size: 80)!}
 		static let h2 = { return UIFont(name: regularFontName, size: 40)!}
 		static let h3 = { return UIFont(name: regularFontName, size: 16)!}
-		
+	}
+	enum SemiBold {// I didn't find the signPainter semibold yet
+		static let h1 = { return UIFont(name: regularFontName, size: 80)!}
+		static let h2 = { return UIFont(name: regularFontName, size: 50)!}
+		static let h3 = { return UIFont(name: regularFontName, size: 40)!}
 	}
 }

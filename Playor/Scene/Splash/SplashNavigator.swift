@@ -12,10 +12,14 @@ class SplashNavigator {
 	private let navigationController: UINavigationController
 	private let services: NetworkUseCaseProvider
 	private let soundServices: SoundUsecaseProvider
-	init(navigationController: UINavigationController, services: NetworkUseCaseProvider, soundServices: SoundUsecaseProvider) {
+	private let dataServices: DataBaseUsecaseProvider
+	private let suggestion: SuggestionUsecase
+	init(navigationController: UINavigationController,dataBaseServices: DataBaseUsecaseProvider, services: NetworkUseCaseProvider, soundServices: SoundUsecaseProvider, suggestion: SuggestionUsecase) {
 		self.navigationController = navigationController
 		self.services = services
 		self.soundServices = soundServices
+		self.dataServices = dataBaseServices
+		self.suggestion = suggestion
 	}
 	
 	func setup() {
@@ -26,7 +30,7 @@ class SplashNavigator {
 	
 	func toHome() {
 		let tabbar = UITabBarController()
-		MainTabbarNavigator(services: services, soundServices: soundServices, navigationController: navigationController, tabbar: tabbar).setup()
+		MainTabbarNavigator(services: services, dataBaseUsecase: dataServices, soundServices: soundServices, navigationController: navigationController, tabbar: tabbar, suggestion: suggestion).setup()
 	}
 	
 	func toOnboarding() {

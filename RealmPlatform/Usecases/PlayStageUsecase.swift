@@ -22,22 +22,24 @@ public final class PlayStageUsecase: Domain.PlayStageUsecase {
 		self.getArtworks = artworkQuery
 		self.getPlayables = playableQuery
 	}
-	
+	let disposeBag = DisposeBag()
 	public func getDataModel() -> Observable<PlayStageDataModel.Response> {
 		
-		let albums = suggestion.getAlbums()
+		let albums = suggestion.getAlbums().map{Optional.some($0) }.startWith(nil)
 		let playlistForUser = suggestion.suggestWellRandomizedPlaylist().flatMapLatest { [unowned self](playlist) -> Observable<[Music]> in
 			return self.getMusics(playlist)
-		}
+		}.map{Optional.some($0) }.startWith(nil)
+//		playlistForUser
 		let greatestHitsOfArtists = suggestion.suggestTopArtists().flatMapLatest { (artists) -> Observable<[Playlist]> in
 			let playlistArray =  artists.map({ (artist) -> Observable<Playlist> in
 				return self.suggestion.suggestWellRandomizedPlaylist(byArtist: artist)
 			})
 			let merged = Observable.combineLatest(playlistArray) { $0 }
 			return merged
-		}
-    let recentlyMusics = suggestion.suggestRecentMusics()
-		
+		}.map{Optional.some($0) }.startWith(nil)
+
+    let recentlyMusics = suggestion.suggestRecentMusics().map{Optional.some($0) }.startWith(nil)
+
 		let response = Observable.combineLatest(albums, playlistForUser, recentlyMusics, greatestHitsOfArtists).map { (arg) -> PlayStageDataModel.Response in
 			
 			let (albums, forYou, recent, greatestHits) = arg

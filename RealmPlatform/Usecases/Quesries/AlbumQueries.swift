@@ -27,6 +27,11 @@ public final class AlbumQueries: Domain.AlbumQueries {
 		return repository.delete(entity: model)
 	}
 	
+	public func albums(withName name: String, artistID: String) -> Observable<[Album]> {
+		let predicate = NSPredicate(format: "title == %@ && artistID == %@", name, artistID)
+		return repository.query(with: predicate)
+	}
+	
 	public func setFavorite(liked: Bool, model: Album) -> Observable<Void> {
 //		[TODO] make update for genericRepository
 		let newAlbum = Album(uid: model.uid, artistID: model.artistID, title: model.title, creationDate: model.creationDate, artworkID: model.artworkID, liked: liked)

@@ -22,6 +22,7 @@ final class Repository<T:RealmRepresentable>: AbstractRepository where T == T.Re
     }
 
     func queryAll() -> Observable<[T]> {
+			
         return Observable.deferred {
                     let realm = self.realm
                     let objects = realm.objects(T.RealmType.self)

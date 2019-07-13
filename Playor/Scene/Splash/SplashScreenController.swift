@@ -20,8 +20,7 @@ class SplashScreenController: UIViewController {
 		assert(viewModel != nil)
 		//[TODO] do some initial works here before entering the app
 		
-		guard let url = Bundle.main.url(forResource: "Test", withExtension: "mp3") else { return }
-//		SoundPlayer.shared.setup(list: [Trest(title: "alli", url: url)], index: 0)
+
 		self.logoLabel.alpha = 0
 	}
 	override func viewDidAppear(_ animated: Bool) {

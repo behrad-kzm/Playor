@@ -9,11 +9,11 @@
 import Foundation
 public struct Artwork: Codable {
 	public let uid: String
-	public let dataURL: URL
+	public let dataPath: String
 	public let source: DataSourceType
-	public init(uid: String, dataURL: URL, source: DataSourceType = .local ){
+	public init(uid: String, dataURL: String, source: DataSourceType = .local ){
 		self.uid = uid
-		self.dataURL = dataURL
+		self.dataPath = dataURL
 		self.source = source
 	}
 }

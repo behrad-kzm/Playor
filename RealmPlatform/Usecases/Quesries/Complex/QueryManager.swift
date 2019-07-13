@@ -36,9 +36,9 @@ public final class QueryManager: Domain.QueryManager {
 	func setupArtworksIfNeeded(){
 		if !UserDefaults.standard.bool(forKey: setupArtworks){
 			for index in 1...20 {
-				if let imagePath = Bundle.main.path(forResource: String(index), ofType: "jpg"), let url = URL(string: imagePath){
+				if let imagePath = Bundle.main.path(forResource: String(index), ofType: "jpg"){
 					let uid = ArtworkPlaceholderType.banner.rawValue + "\(index)"
-					let artwork = Artwork(uid: uid, dataURL: url)
+					let artwork = Artwork(uid: uid, dataURL: imagePath)
 					do {
 						realm.add(artwork.asRealm())
 					}

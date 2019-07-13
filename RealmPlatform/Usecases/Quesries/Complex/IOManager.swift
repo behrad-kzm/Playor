@@ -152,7 +152,7 @@ public final class IOManager: Domain.IOManager {
 	public func remove(Artwork artwork: Artwork) -> Observable<Void> {
 		let removeFile = Observable<Void>.create {observer in
 			do {
-				try FileManager.default.removeItem(at: artwork.dataURL)
+				try FileManager.default.removeItem(at: URL(fileURLWithPath: artwork.dataPath))
 			} catch {
 				observer.onError(error)
 			}
@@ -169,7 +169,7 @@ public final class IOManager: Domain.IOManager {
 		let query = ArtworkQueries(repository: Repository<Artwork>(configuration: configuration))
 		let defaultArtwork = query.getPlaceHolder(type: type, random: false)
 		return defaultArtwork.flatMapLatest({ (defArtwork) -> Observable<Void> in
-			let model = Artwork(uid: artwork.uid, dataURL: defArtwork.dataURL, source: .local)
+			let model = Artwork(uid: artwork.uid, dataURL: defArtwork.dataPath, source: .local)
 			return query.update(model: model)
 		})
 	}

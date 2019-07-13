@@ -10,8 +10,8 @@ import UIKit
 import Domain
 
 final class StagePlaylistFeatureBannerViewModel: FeatureBannerViewModelProtocol {
-	typealias T = Playlist
 	let title: String
+	let type: BannerType = .playlist
 	let backgroundArtwork: Artwork
 	let model: Playlist
 	init(playlist: Playlist, artwork: Artwork) {

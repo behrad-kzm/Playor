@@ -41,24 +41,20 @@ public final class SuggestionUsecaseProvider: Domain.SuggestionUsecase {
 		]
 	}
 	
-	
-	
-	
-	
 	public func suggestCollection() -> Observable<FeaturedCollections> {
 		let playlist1 = suggestWellRandomizedPlaylist()
-		let playlist2 = queryManager.getArtistQueries().getAll().map{$0.randomElement()}.filter{$0 != nil}.flatMapLatest { [unowned self](artist) -> Observable<Playlist> in
+		let playlist2 = queryManager.getSingleTableQueries().getArtistQueries().getAll().map{$0.randomElement()}.filter{$0 != nil}.flatMapLatest { [unowned self](artist) -> Observable<Playlist> in
 			return self.suggestWellRandomizedPlaylist(byArtist: artist!)
 		}
 		
 		let playlist3 = suggestWellRandomizedPlaylist()
-		let playlist4 = queryManager.getArtistQueries().getAll().map{$0.randomElement()}.filter{$0 != nil}.flatMapLatest { [unowned self](artist) -> Observable<Playlist> in
+		let playlist4 = queryManager.getSingleTableQueries().getArtistQueries().getAll().map{$0.randomElement()}.filter{$0 != nil}.flatMapLatest { [unowned self](artist) -> Observable<Playlist> in
 			return self.suggestWellRandomizedPlaylist(byArtist: artist!)
 		}
 		let playlist5 = suggestWellRandomizedPlaylist()
 		let playlists = Observable.combineLatest([playlist1,playlist2,playlist3,playlist4,playlist5])
 		let title = CollectionNames().generateTitle()
-		let artwork = queryManager.getAtworksQueries().getPlaceHolder(type: .banner, random: true)
+		let artwork = queryManager.getSingleTableQueries().getAtworksQueries().getPlaceHolder(type: .banner, random: true)
 		return Observable.combineLatest(artwork,playlists).flatMapLatest { (artwork, playlists) -> Observable<FeaturedCollections> in
 			let collection = FeaturedCollections(uid: UUID().uuidString, title: title, creationDate: Date(), artworkID: artwork.uid)
 			let obsCollection = Observable.just(collection)
@@ -72,14 +68,13 @@ public final class SuggestionUsecaseProvider: Domain.SuggestionUsecase {
 		for _ in 0...19 {
 			let randomDateIndex = RandomSelection.randomNumber(probabilities: Array(timeDistributionWeights.values))
 			let selectedDateRange = randomDateIndex > 0 ? (dates[randomDateIndex], dates[randomDateIndex - 1]) : (lastTwoWeeks, Date())
-			musicIDS.append(queryManager.pickWeightedProbabilityMusic(fromDate: selectedDateRange.0, toDate: selectedDateRange.1, uidNot: musicIDS))
+			musicIDS.append(queryManager.getWeightedQueries().pickWeightedProbabilityMusic(fromDate: selectedDateRange.0, toDate: selectedDateRange.1, uidNot: musicIDS))
 		}
 		let title = PlaylistNames(artist: nil).generateTitle()
-		return queryManager.getAtworksQueries().getPlaceHolder(type: .banner, random: true).flatMapLatest { [unowned self](artwork) -> Observable<Playlist> in
+		return queryManager.getSingleTableQueries().getAtworksQueries().getPlaceHolder(type: .banner, random: true).flatMapLatest { [unowned self](artwork) -> Observable<Playlist> in
 			let playlist = Playlist(uid: UUID().uuidString, rate: 1, title: title, creationDate: Date(), artworkID: artwork.uid, liked: false, playCount: 0, source: .generated)
 			let obsPlaylist = Observable.just(playlist)
 			return self.queryManager.getIOManager().insert(Playlist: playlist, TrackIDS: musicIDS, Artwork: artwork).withLatestFrom(obsPlaylist)
-		
 		}
 	}
 	
@@ -90,10 +85,10 @@ public final class SuggestionUsecaseProvider: Domain.SuggestionUsecase {
 		for _ in 0...19 {
 			let randomDateIndex = RandomSelection.randomNumber(probabilities: Array(timeDistributionWeights.values))
 			let selectedDateRange = randomDateIndex > 0 ? (dates[randomDateIndex], dates[randomDateIndex - 1]) : (lastTwoWeeks, Date())
-			musicIDS.append(queryManager.pickWeightedProbabilityMusic(fromDate: selectedDateRange.0, toDate: selectedDateRange.1, uidNot: musicIDS, ByArtist: artist))
+			musicIDS.append(queryManager.getWeightedQueries().pickWeightedProbabilityMusic(fromDate: selectedDateRange.0, toDate: selectedDateRange.1, uidNot: musicIDS, ByArtist: artist))
 		}
 		let title = PlaylistNames(artist: artist).generateTitle()
-		return queryManager.getAtworksQueries().getPlaceHolder(type: .banner, random: true).flatMapLatest { [unowned self](artwork) -> Observable<Playlist> in
+		return queryManager.getSingleTableQueries().getAtworksQueries().getPlaceHolder(type: .banner, random: true).flatMapLatest { [unowned self](artwork) -> Observable<Playlist> in
 			let playlist = Playlist(uid: UUID().uuidString, rate: 1, title: title, creationDate: Date(), artworkID: artwork.uid, liked: false, playCount: 0, source: .generated)
 			let obsPlaylist = Observable.just(playlist)
 			return self.queryManager.getIOManager().insert(Playlist: playlist, TrackIDS: musicIDS, Artwork: artwork).withLatestFrom(obsPlaylist)
@@ -102,21 +97,21 @@ public final class SuggestionUsecaseProvider: Domain.SuggestionUsecase {
 	
 	public func suggestTopArtists() -> Observable<[Artist]> {
 		
-		return queryManager.topArtitst(maxCount: 5)
+		return queryManager.getWeightedQueries().topArtitst(maxCount: 5)
 	}
 	
 	public func suggestRecentMusics() -> Observable<[Music]> {
 		let sort = NSSortDescriptor(key: "creationDate", ascending: true)
 		let predicate = NSPredicate(format: "creationDate >= %@", lastMonth as CVarArg)
-		return queryManager.getMusicQueries().search(with: predicate, sortDescriptors: [sort])
+		return queryManager.getSingleTableQueries().getMusicQueries().search(with: predicate, sortDescriptors: [sort])
 	}
 	
 	public func getAlbums() -> Observable<[Album]> {
-		return queryManager.getAlbumsQueries().getAll()
+		return queryManager.getSingleTableQueries().getAlbumsQueries().getAll()
 	}
 	
 	public func getAlbums(byArtist artist: Artist) -> Observable<[Album]> {
-		return queryManager.getAlbums(ofArtist: artist)
+		return queryManager.getSearchingQueries().getAlbums(ofArtist: artist)
 	}
 }
 

@@ -9,12 +9,12 @@
 import UIKit
 import Domain
 protocol FeatureBannerViewModelProtocol {
-	typealias T = BannerListType
 	var title: String { get }
 	var backgroundArtwork: Artwork { get }
-	var model: T { get }
+	var type: BannerType { get }
 }
-enum BannerListType {
-	typealias playlist = Playlist
-	typealias album = Album
+
+enum BannerType {
+	case album
+	case playlist
 }

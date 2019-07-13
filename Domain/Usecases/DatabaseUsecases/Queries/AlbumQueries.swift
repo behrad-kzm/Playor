@@ -17,4 +17,5 @@ public protocol AlbumQueries {
 	func update(model: Album) -> Observable<Void>
 	func getAll() -> Observable<[Album]>
 	func search(with predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> Observable<[Album]>
+	func albums(withName name: String, artistID: String) -> Observable<[Album]>
 }

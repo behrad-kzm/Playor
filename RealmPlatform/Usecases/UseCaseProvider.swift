@@ -10,13 +10,14 @@ public final class UseCaseProvider: DataBaseUsecaseProvider{
 
     public init(configuration: Realm.Configuration = Realm.Configuration()) {
         self.configuration = configuration
-    }
-	private let musicFromPlaylistMethod: (_ playlist: Playlist) -> Observable<[Music]>
-
-
-	
+			
+	}
+	public func makeQueryManager() -> Domain.QueryManager {
+		return QueryManager(configuration: configuration)
+	}
 	public func makePlayStageUseCase(suggestion: Domain.SuggestionUsecase) -> Domain.PlayStageUsecase {
-		return	PlayStageUsecase(suggestion: suggestion, musicQuery: musicFromPlaylistMethod, artworkQuery: artworks, playableQuery: playables)
+		let queryManager = QueryManager(configuration: configuration)
+		return	PlayStageUsecase(suggestion: suggestion, musicQuery: queryManager.getSearchingQueries().getMusics, artworkQuery: queryManager.getSearchingQueries().artworks, playableQuery: queryManager.getSearchingQueries().getPlayable)
 	}
 
 }

@@ -14,12 +14,14 @@ import Differentiator
 
 enum MultipleSectionModel {
 	case TrackListSection(title: String, items: [SectionItem])
-	case FeatureListSection(title: String, items: [SectionItem])
+	case FeatureAlbumListSection(title: String, items: [SectionItem])
+	case FeaturePlaylistListSection(title: String, items: [SectionItem])
 }
 
 enum SectionItem {
 	case TrackSectionItem(viewModel: SongCellViewModelProtocol)
-	case FeatureSectionItem(viewModel: FeatureBannerViewModelProtocol)
+	case FeatureAlbumSectionItem(viewModel: StageAlbumFeatureBannerViewModel)
+	case FeaturePlaylistSectionItem(viewModel: StagePlaylistFeatureBannerViewModel)
 }
 
 extension MultipleSectionModel: SectionModelType {
@@ -29,7 +31,9 @@ extension MultipleSectionModel: SectionModelType {
 		switch  self {
 		case .TrackListSection(title: _, items: let items):
 			return items.map {$0}
-		case .FeatureListSection(title: _, items: let items):
+		case .FeatureAlbumListSection(title: _, items: let items):
+			return items.map {$0}
+		case .FeaturePlaylistListSection(title: _, items: let items):
 			return items.map {$0}
 		}
 	}
@@ -38,8 +42,10 @@ extension MultipleSectionModel: SectionModelType {
 		switch original {
 		case let .TrackListSection(title: title, items: _):
 			self = .TrackListSection(title: title, items: items)
-		case let .FeatureListSection(title, _):
-			self = .FeatureListSection(title: title, items: items)
+		case let .FeatureAlbumListSection(title, _):
+			self = .FeatureAlbumListSection(title: title, items: items)
+		case let .FeaturePlaylistListSection(title, _):
+			self = .FeaturePlaylistListSection(title: title, items: items)
 		}
 	}
 }
@@ -49,7 +55,9 @@ extension MultipleSectionModel {
 		switch self {
 		case .TrackListSection(title: let title, items: _):
 			return title
-		case .FeatureListSection(title: let title, items: _):
+		case .FeatureAlbumListSection(title: let title, items: _):
+			return title
+		case .FeaturePlaylistListSection(title: let title, items: _):
 			return title
 		}
 	}

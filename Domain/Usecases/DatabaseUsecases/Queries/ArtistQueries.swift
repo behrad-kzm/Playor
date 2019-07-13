@@ -17,4 +17,5 @@ public protocol ArtistQueries {
 	func update(model: Artist) -> Observable<Void>
 	func get(model: ArtistContainedProtocol) -> Observable<Artist?>
 	func search(with predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> Observable<[Artist]>
+	func artists(with name: String) -> Observable<[Artist]>
 }

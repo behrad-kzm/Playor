@@ -13,11 +13,11 @@ class SongCell: UITableViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var artworkImage: UIImageView!
 	@IBOutlet weak var container: UIView!
-	
+	static let cellID = "SongCell"
 	var viewModel: SongCellViewModelProtocol! {
 		didSet {
 			titleLabel.text = viewModel.title
-			artworkImage.image = viewModel.image
+			artworkImage.image = UIImage(contentsOfFile: viewModel.backgroundArtwork.dataPath)
 		}
 	}
 	override func awakeFromNib() {

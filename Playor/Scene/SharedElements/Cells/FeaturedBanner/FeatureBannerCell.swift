@@ -7,16 +7,18 @@
 //
 
 import UIKit
-
+import SDWebImage
 class FeatureBannerCell: UICollectionViewCell {
 
 	@IBOutlet weak var backgroundImage: UIImageView!
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var container: UIView!
+	static let cellID = "FeatureBannerCell"
+	static let defaultCellSize = CGSize(width: UIScreen.main.bounds.width * 0.8, height: 180)
 	var viewModel: FeatureBannerViewModelProtocol! {
 		didSet {
 			titleLabel.text = viewModel.title
-			backgroundImage.image = viewModel.backgroundImage
+			backgroundImage.image = UIImage(contentsOfFile: viewModel.backgroundArtwork.dataPath)
 		}
 	}
 	

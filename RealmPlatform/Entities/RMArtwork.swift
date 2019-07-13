@@ -20,7 +20,12 @@ final class RMArtwork: Object {
 }
 extension RMArtwork: DomainConvertibleType {
 	func asDomain() -> Artwork {
-		return Artwork(uid: uid, dataURL: URL(string: dataURL)!, source: source)
+		let pathArr = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+
+		let cleanPath = dataURL.removingPercentEncoding ?? ""
+		let route =  pathArr.first! + "/" + cleanPath
+
+		return Artwork(uid: uid, dataURL: route, source: source)
 	}
 }
 
@@ -29,7 +34,7 @@ extension Artwork: RealmRepresentable {
 		return RMArtwork.build { object in
 			object.uid = uid
 			object.source = source
-			object.dataURL = dataURL.absoluteString
+			object.dataURL = URL(fileURLWithPath: dataPath).lastPathComponent
 		}
 	}
 }

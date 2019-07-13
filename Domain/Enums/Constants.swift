@@ -24,6 +24,16 @@ public enum Constants {
 		}
 		
 	}
+	public enum DefaultNames: String {
+		
+		//Main
+		case album = "Unknown Album"
+		case artist = "Unknown Artist"
+		case genre = "Various"
+		case title = "Untitled"
+		case fileType = "UnknownFile"
+
+	}
 	public enum EndPoints: String {
 		
 		//Main

@@ -10,8 +10,9 @@ import UIKit
 import Domain
 
 final class StageAlbumFeatureBannerViewModel: FeatureBannerViewModelProtocol {
-	typealias T = Album
+
 	let title: String
+	let type: BannerType = .album
 	let backgroundArtwork: Artwork
 	let model: Album
 	init(album: Album, artwork: Artwork) {

@@ -18,7 +18,7 @@ class RemovableSongCell: UITableViewCell {
 	var viewModel: SongCellViewModelProtocol! {
 		didSet {
 			titleLabel.text = viewModel.title
-			artworkImage.image = viewModel.image
+			artworkImage.image = UIImage(contentsOfFile: viewModel.backgroundArtwork.dataPath)
 		}
 	}
 	override func awakeFromNib() {

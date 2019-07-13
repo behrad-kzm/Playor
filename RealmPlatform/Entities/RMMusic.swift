@@ -21,16 +21,17 @@ final class RMMusic: Object {
 	@objc dynamic var albumName = ""
 	@objc dynamic var artistName = ""
 	@objc dynamic var creationDate = Date()
+	@objc dynamic var duration = 0.0
 	@objc dynamic var playCount = 0
 	@objc dynamic var liked = false
-	@objc dynamic var rate = 0.1
+	@objc dynamic var rate = 1.0
 	override static func primaryKey() -> String {
 		return "uid"
 	}
 }
 extension RMMusic: DomainConvertibleType {
 	func asDomain() -> Music {
-		return Music(uid: uid, title: title, genre: genre, artworkID: artworkID, artistID: artistID, artistName: artistName, playableID: playableID, creationDate: creationDate, playCount: playCount, albumID: albumID, albumName: albumName, rate: rate, liked: liked)
+		return Music(uid: uid, title: title, genre: genre, artworkID: artworkID, artistID: artistID, artistName: artistName, playableID: playableID, creationDate: creationDate, playCount: playCount, albumID: albumID, albumName: albumName, rate: rate, liked: liked, duration: duration)
 	}
 }
 
@@ -47,6 +48,7 @@ extension Music: RealmRepresentable {
 			object.artistName = artistName
 			object.title = title
 			object.genre = genre
+			object.duration = duration
 			object.rate = rate
 			object.liked = liked
 			object.creationDate = creationDate

@@ -31,19 +31,19 @@ public final class MusicQueries: Domain.MusicQueries {
 	
 	public func setFavorite(liked: Bool, model: Music) -> Observable<Void> {
 		//		[TODO] make update for genericRepository
-		let newModel = Music(uid: model.uid, title: model.title, genre: model.genre, artworkID: model.artworkID, artistID: model.artistID, artistName: model.artistName, playableID: model.playableID, creationDate: model.creationDate, playCount: model.playCount, albumID: model.albumID, albumName: model.albumName, rate: model.rate, liked: liked)
+		let newModel = Music(uid: model.uid, title: model.title, genre: model.genre, artworkID: model.artworkID, artistID: model.artistID, artistName: model.artistName, playableID: model.playableID, creationDate: model.creationDate, playCount: model.playCount, albumID: model.albumID, albumName: model.albumName, rate: model.rate, liked: liked, duration: model.duration)
 		return repository.save(entity: newModel)
 	}
 	
 	public func addScore(model: Music, score: Double) -> Observable<Void> {
 		let rate = model.rate + score
-		let newModel = Music(uid: model.uid, title: model.title, genre: model.genre, artworkID: model.artworkID, artistID: model.artistID, artistName: model.artistName, playableID: model.playableID, creationDate: model.creationDate, playCount: model.playCount, albumID: model.albumID, albumName: model.albumName, rate: rate, liked: model.liked)
+		let newModel = Music(uid: model.uid, title: model.title, genre: model.genre, artworkID: model.artworkID, artistID: model.artistID, artistName: model.artistName, playableID: model.playableID, creationDate: model.creationDate, playCount: model.playCount, albumID: model.albumID, albumName: model.albumName, rate: rate, liked: model.liked, duration: model.duration)
 		return repository.save(entity: newModel)
 	}
 	
 	public func increasePlayCount(model: Music) -> Observable<Void> {
 		let count = model.playCount + 1
-		let newModel = Music(uid: model.uid, title: model.title, genre: model.genre, artworkID: model.artworkID, artistID: model.artistID, artistName: model.artistName, playableID: model.playableID, creationDate: model.creationDate, playCount: count, albumID: model.albumID, albumName: model.albumName, rate: model.rate, liked: model.liked)
+		let newModel = Music(uid: model.uid, title: model.title, genre: model.genre, artworkID: model.artworkID, artistID: model.artistID, artistName: model.artistName, playableID: model.playableID, creationDate: model.creationDate, playCount: count, albumID: model.albumID, albumName: model.albumName, rate: model.rate, liked: model.liked, duration: model.duration)
 		return repository.save(entity: newModel)
 	}
 	

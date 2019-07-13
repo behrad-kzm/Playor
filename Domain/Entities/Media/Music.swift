@@ -19,6 +19,7 @@ public struct Music: ArtworkContainedProtocol, ArtistContainedProtocol, Codable 
 	public let creationDate: Date
 	public let playCount: Int
 	public let rate: Double
+	public let duration: Double
 	public let liked: Bool
 	public let artistName: String
 	public init(uid: String,
@@ -33,7 +34,8 @@ public struct Music: ArtworkContainedProtocol, ArtistContainedProtocol, Codable 
 							albumID: String,
 							albumName: String,
 							rate: Double,
-							liked: Bool) {
+							liked: Bool,
+							duration: Double) {
 		
 		self.uid = uid
 		self.title = title
@@ -48,6 +50,7 @@ public struct Music: ArtworkContainedProtocol, ArtistContainedProtocol, Codable 
 		self.rate = rate
 		self.liked = liked
 		self.albumName = albumName
+		self.duration = duration
 	}
 }
 

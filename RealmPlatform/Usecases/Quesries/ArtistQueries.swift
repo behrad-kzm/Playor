@@ -42,5 +42,8 @@ public final class ArtistQueries: Domain.ArtistQueries {
 	public func search(with predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]) -> Observable<[Artist]> {
 		return repository.query(with: predicate, sortDescriptors: sortDescriptors)
 	}
-	
+	public 	func artists(with name: String) -> Observable<[Artist]> {
+		let predicate = NSPredicate(format: "name == %@", name)
+		return repository.query(with: predicate)
+	}
 }
