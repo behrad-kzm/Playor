@@ -14,6 +14,7 @@ class SongCell: UITableViewCell {
 	@IBOutlet weak var artworkImage: UIImageView!
 	@IBOutlet weak var container: UIView!
 	static let cellID = "SongCell"
+	static let defaultCellHeight = CGFloat(64)
 	var viewModel: SongCellViewModelProtocol! {
 		didSet {
 			titleLabel.text = viewModel.title
@@ -27,7 +28,7 @@ class SongCell: UITableViewCell {
 	func setupUI(){
 		titleLabel.font = Appearance.Fonts.Regular.cellTitle()
 		container.clipsToBounds = true
-		container.layer.borderColor = UIColor.white.cgColor
+		container.layer.borderColor = UIColor(white: 1, alpha: 0.5).cgColor
 		container.layer.borderWidth = 0.5
 		container.layer.cornerRadius = container.bounds.height / 2
 		artworkImage.layer.cornerRadius = artworkImage.bounds.height / 2
@@ -35,7 +36,6 @@ class SongCell: UITableViewCell {
 	}
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 }

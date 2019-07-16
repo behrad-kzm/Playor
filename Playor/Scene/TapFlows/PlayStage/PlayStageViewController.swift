@@ -23,6 +23,8 @@ class PlayStageViewController: UIViewController {
 	@IBOutlet weak var recentlyTitleLabel: UILabel!
 	@IBOutlet weak var pickedForUserLabel: UILabel!
 	
+
+	@IBOutlet weak var pickedTable: UITableView!
 	@IBOutlet weak var albumCollection: UICollectionView!
 	@IBOutlet weak var mainStack: UIStackView!
 	@IBOutlet weak var scrollView: UIScrollView!
@@ -48,37 +50,47 @@ class PlayStageViewController: UIViewController {
 
 		let guide = view.safeAreaLayoutGuide.layoutFrame
 		scrollView.contentInset = UIEdgeInsets(top: blurHeaderView.bounds.height, left: 0, bottom: guide.origin.y + guide.size.height, right: 0)
-		
 	}
 	
 	func bindData(){
 		//			let dataSource = PlayStageViewController.dataSource()
+		let bannerListLayout = SWInflateLayout()
+		bannerListLayout.scrollDirection = .horizontal
+		bannerListLayout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+		bannerListLayout.itemSize = FeatureBannerCell.defaultCellSize
+		albumCollection.setCollectionViewLayout(bannerListLayout, animated: true)
 		
-		let input = PlayStageViewModel.Input(mainScrollViewContentOffset: scrollView.rx.contentOffset.asDriver(), albumSelection: albumCollection.rx.itemSelected.asDriver())
+		let input = PlayStageViewModel.Input(mainScrollViewContentOffset: scrollView.rx.contentOffset.asDriver(), albumSelection: albumCollection.rx.itemSelected.asDriver(), pickedSelection: pickedTable.rx.itemSelected.asDriver())
 		let output = viewModel.transform(input: input)
-		let layout = SWInflateLayout()
-		layout.scrollDirection = .horizontal
-		layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-		layout.itemSize = FeatureBannerCell.defaultCellSize
-		albumCollection.setCollectionViewLayout(layout, animated: true)
+
 		
 		albumCollection.register(UINib(nibName: "FeatureBannerCell", bundle: nil), forCellWithReuseIdentifier: FeatureBannerCell.cellID)
 		
-		mainStack.insertArrangedSubview(albumCollection, at: 1)
-		
-		let result = output.collections.map { (items) -> [SectionItem] in
+		pickedTable.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: SongCell.cellID)
+		pickedTable.rowHeight = SongCell.defaultCellHeight
+
+
+		let picked = output.collections.map { (items) -> [SectionItem] in
+			
+			return items[1].items
+		}
+		let albums = output.collections.map { (items) -> [SectionItem] in
+			
 			return items[0].items
 		}
-		
-		result.drive(albumCollection.rx.items(cellIdentifier: FeatureBannerCell.cellID, cellType: FeatureBannerCell.self)){ index, item, cell in
-			
+		albums.drive(albumCollection.rx.items(cellIdentifier: FeatureBannerCell.cellID, cellType: FeatureBannerCell.self)){ index, item, cell in
 			if case .FeatureAlbumSectionItem(let vm) = item {
 				cell.viewModel = vm
 			}
 			}.disposed(by: disposeBag)
 		
-		[output.error.drive(),output.shouldBlur.do(onNext: { [unowned self](status) in
-			
+		picked.drive(pickedTable.rx.items(cellIdentifier: SongCell.cellID, cellType: SongCell.self)){ index, item, cell in
+			if case .TrackSectionItem(let vm) = item {
+				cell.viewModel = vm
+			}
+			}.disposed(by: disposeBag)
+		
+		[output.error.drive(),output.playAction.drive(),output.shouldBlur.do(onNext: { [unowned self](status) in			
 			if status {
 
 				UIView.animate(withDuration: 0.3) {
@@ -93,5 +105,11 @@ class PlayStageViewController: UIViewController {
 		}).drive(), output.isFetching.drive()].forEach { (item) in
 			item.disposed(by: disposeBag)
 		}
+//		result.drive(pickedCollection.rx.items(cellIdentifier: SongCell.cellID, cellType: SongCell.self)){ index, item, cell in
+//			if case SectionItem.TrackSectionItem(viewModel: let vm) = item {
+//				cell.viewModel = vm
+//			}
+//			}.disposed(by: disposeBag)
 	}
+	
 }

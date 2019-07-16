@@ -81,6 +81,7 @@ public class SoundPlayer: NSObject, AVAudioPlayerDelegate {
 	}
 	private func play(Model audio: Playable){
 			do {
+				
 				audioPlayer = try AVAudioPlayer(contentsOf: audio.url)
 //				self.audioPlayer.delegate = self
 				status = .playing

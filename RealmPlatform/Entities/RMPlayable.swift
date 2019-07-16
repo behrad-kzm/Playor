@@ -23,9 +23,7 @@ extension RMPlayable: DomainConvertibleType {
 	func asDomain() -> Playable {
 		let pathArr = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
 		let route =  pathArr.first! + "/" + path
-		let cleanPath = path.removingPercentEncoding ?? route
-		let webSafeURL = "file:///private" + cleanPath.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
-		let playableURL = URL(string: webSafeURL) ?? Bundle.main.url(forResource: "Splash", withExtension: "mp3")!
+		let playableURL = URL(string: route) ?? Bundle.main.url(forResource: "Splash", withExtension: "mp3")!
 		return Playable(uid: uid, url: playableURL, format: format)
 	}
 }

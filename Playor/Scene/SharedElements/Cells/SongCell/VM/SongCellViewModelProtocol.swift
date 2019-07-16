@@ -12,4 +12,5 @@ protocol SongCellViewModelProtocol {
 	var title: String { get }
 	var backgroundArtwork: Artwork { get }
 	var model: Music { get }
+	
 }
