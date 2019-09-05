@@ -1,0 +1,6 @@
+framework module Stellar {
+  umbrella header "Stellar-umbrella.h"
+
+  export *
+  module * { export * }
+}

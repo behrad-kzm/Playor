@@ -34,6 +34,7 @@ extension Album: RealmRepresentable {
 			object.artworkID = artworkID
 			object.title = title
 			object.liked = liked
+			object.artistID = artistID
 			object.creationDate = creationDate
 		}
 	}

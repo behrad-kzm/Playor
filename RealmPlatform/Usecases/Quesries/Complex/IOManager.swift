@@ -24,10 +24,11 @@ public final class IOManager: Domain.IOManager {
 		self.configuration = configuration
 		let name = Constants.Keys.realmRepository.rawValue
 		self.scheduler = RunLoopThreadScheduler(threadName: name)
+		
 	}
 	
 	public func insert(Playlist playlist: Playlist, TrackIDS trackIDS: [String], Artwork artwork: Artwork) -> Observable<Void> {
-		let insertTracks = Observable<Void>.create {[unowned self] observer in
+		let insertTracks = Observable<Void>.create { observer in
 			trackIDS.forEach { (uid) in
 				let entity = RMPlaylistTrack()
 				entity.musicID = uid
@@ -51,7 +52,10 @@ public final class IOManager: Domain.IOManager {
 	
 	public func insert(Music music: Music, PlayableModel playable: Playable, Artwork artwork: Artwork) -> Observable<Void> {
 		let insertMusic = Repository<Music>(configuration: configuration).save(entity: music)
-		let insertPlayable = Repository<Playable>(configuration: configuration).save(entity: playable)
+		let insertPlayable = Repository<Playable>(configuration: configuration).save(entity: playable).do(onNext: { () in
+			let count = UserDefaults.standard.integer(forKey: Constants.Keys.User.musicCount.rawValue) + 1
+			UserDefaults.standard.set(count, forKey: Constants.Keys.User.musicCount.rawValue)
+		})
 		let insertArtwork = Repository<Artwork>(configuration: configuration).save(entity: artwork)
 		return insertMusic.concat(insertPlayable).concat(insertArtwork)
 	}
@@ -82,7 +86,7 @@ public final class IOManager: Domain.IOManager {
 	
 	public func insert(FeaturedCollection collection: FeaturedCollections, Playlists playlists: [Playlist]) -> Observable<Void> {
 		let insertFeaturedCollection = Repository<FeaturedCollections>(configuration: configuration).save(entity: collection)
-		let insertCollectionPlaylists = Observable<Void>.create {[unowned self] observer in
+		let insertCollectionPlaylists = Observable<Void>.create { [unowned self]observer in
 			playlists.forEach { (playlist) in
 				let entity = RMCollectionList()
 				entity.collectionID = collection.uid
@@ -109,7 +113,7 @@ public final class IOManager: Domain.IOManager {
 	}
 	
 	public func remove(Playlist playlist: Playlist) -> Observable<Void> {
-		let removeTracks = Observable<Void>.create {[unowned self] observer in
+		let removeTracks = Observable<Void>.create {[unowned self]observer in
 			let objects = self.realm.objects(RMCollectionList.self).filter("playlistID == %@", playlist.uid)
 			self.realm.delete(objects)
 			observer.onNext(())
@@ -122,7 +126,7 @@ public final class IOManager: Domain.IOManager {
 	}
 	
 	public func remove(Album album: Album) -> Observable<Void> {
-		let removeMusics = Observable<Void>.create {[unowned self] observer in
+		let removeMusics = Observable<Void>.create { [unowned self]observer in
 			let objects = self.realm.objects(RMMusic.self).filter("albumID == %@", album.uid)
 			let playables = objects.compactMap({ (music) -> RMPlayable? in
 				return self.realm.object(ofType: RMPlayable.self, forPrimaryKey: music.playableID)
@@ -144,7 +148,10 @@ public final class IOManager: Domain.IOManager {
 	
 	public func remove(Music music: Music) -> Observable<Void> {
 		let removeArtwork = Repository<Artwork>(configuration: configuration).delete(forPrimaryKey: music.artworkID)
-		let removePlayable = Repository<Playable>(configuration: configuration).delete(forPrimaryKey: music.playableID)
+		let removePlayable = Repository<Playable>(configuration: configuration).delete(forPrimaryKey: music.playableID).do(onNext: { () in
+			let count = UserDefaults.standard.integer(forKey: Constants.Keys.User.musicCount.rawValue) - 1
+			UserDefaults.standard.set(count, forKey: Constants.Keys.User.musicCount.rawValue)
+		})
 		let removeMusic = Repository<Music>(configuration: configuration).delete(entity: music)
 		return removeArtwork.concat(removePlayable).concat(removeMusic)
 	}
@@ -172,5 +179,8 @@ public final class IOManager: Domain.IOManager {
 			let model = Artwork(uid: artwork.uid, dataURL: defArtwork.dataPath, source: .local)
 			return query.update(model: model)
 		})
+	}
+	public func getMusicCount() -> Int{
+		return UserDefaults.standard.integer(forKey: Constants.Keys.User.musicCount.rawValue)
 	}
 }

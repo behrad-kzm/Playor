@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,6 +63,7 @@
 		13075DB522B40FC8000ED7AE /* Test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13075DB422B40FC7000ED7AE /* Test.mp3 */; };
 		13075DB622B41617000ED7AE /* Test.mp3 in Sources */ = {isa = PBXBuildFile; fileRef = 13075DB422B40FC7000ED7AE /* Test.mp3 */; };
 		13075DB722B41661000ED7AE /* Test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13075DB422B40FC7000ED7AE /* Test.mp3 */; };
+		1307FE8323186B6A00B0B6AD /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1307FE8223186B6A00B0B6AD /* Observable+Ext.swift */; };
 		130A1AC022B2443600ED0CA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130A1ABF22B2443600ED0CA6 /* AppDelegate.swift */; };
 		130A1AC722B2443A00ED0CA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 130A1AC622B2443A00ED0CA6 /* Assets.xcassets */; };
 		130A1ACA22B2443A00ED0CA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 130A1AC822B2443A00ED0CA6 /* LaunchScreen.storyboard */; };
@@ -137,6 +138,11 @@
 		136CA0C822D5C1B5002E278C /* SearchingQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136CA0C722D5C1B5002E278C /* SearchingQueries.swift */; };
 		136CA0CC22D77C5C002E278C /* AudioFileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136CA0CB22D77C5B002E278C /* AudioFileHandler.swift */; };
 		136CA0CE22D77C93002E278C /* AudioFileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136CA0CD22D77C93002E278C /* AudioFileHandler.swift */; };
+		137D9993232196840092A264 /* AudioControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D9991232196840092A264 /* AudioControllerViewController.swift */; };
+		137D9994232196840092A264 /* AudioControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137D9992232196840092A264 /* AudioControllerViewController.xib */; };
+		137D9996232196D70092A264 /* AudioControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D9995232196D70092A264 /* AudioControllerVM.swift */; };
+		137D99982321973A0092A264 /* AudioControllerNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D99972321973A0092A264 /* AudioControllerNavigator.swift */; };
+		137D999E2321A1480092A264 /* ACHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137D999D2321A1480092A264 /* ACHeaderView.xib */; };
 		13815BB622B79E00000AB919 /* MainTabbarNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13815BB522B79E00000AB919 /* MainTabbarNavigator.swift */; };
 		13815BBB22B7A5AB000AB919 /* PlayStageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13815BB922B7A5AB000AB919 /* PlayStageViewController.swift */; };
 		13815BBC22B7A5AB000AB919 /* PlayStageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13815BBA22B7A5AB000AB919 /* PlayStageViewController.xib */; };
@@ -179,6 +185,26 @@
 		13A4045122C2163200B16B1A /* QueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4045022C2163200B16B1A /* QueryManager.swift */; };
 		13A4045322C2304A00B16B1A /* QueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A4045222C2304A00B16B1A /* QueryManager.swift */; };
 		13AAFB7422B6EBAE00A76B12 /* AppEffectSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AAFB7322B6EBAE00A76B12 /* AppEffectSounds.swift */; };
+		13AF7CB622E08B9B00D5EEEA /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08822CE3A1300821DF3 /* 1.jpg */; };
+		13AF7CB722E08B9B00D5EEEA /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC07C22CE3A0F00821DF3 /* 2.jpg */; };
+		13AF7CB822E08B9B00D5EEEA /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08622CE3A1200821DF3 /* 3.jpg */; };
+		13AF7CB922E08B9B00D5EEEA /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08922CE3A1300821DF3 /* 4.jpg */; };
+		13AF7CBA22E08B9B00D5EEEA /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC07F22CE3A1000821DF3 /* 5.jpg */; };
+		13AF7CBB22E08B9B00D5EEEA /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08A22CE3A1400821DF3 /* 6.jpg */; };
+		13AF7CBC22E08B9B00D5EEEA /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08422CE3A1200821DF3 /* 7.jpg */; };
+		13AF7CBD22E08B9B00D5EEEA /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08222CE3A1100821DF3 /* 8.jpg */; };
+		13AF7CBE22E08B9B00D5EEEA /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08022CE3A1100821DF3 /* 9.jpg */; };
+		13AF7CBF22E08B9B00D5EEEA /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08122CE3A1100821DF3 /* 10.jpg */; };
+		13AF7CC022E08B9B00D5EEEA /* 11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08322CE3A1100821DF3 /* 11.jpg */; };
+		13AF7CC122E08B9B00D5EEEA /* 12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC07A22CE3A0F00821DF3 /* 12.jpg */; };
+		13AF7CC222E08B9B00D5EEEA /* 13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08522CE3A1200821DF3 /* 13.jpg */; };
+		13AF7CC322E08B9B00D5EEEA /* 14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08722CE3A1300821DF3 /* 14.jpg */; };
+		13AF7CC422E08B9B00D5EEEA /* 15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08B22CE3A1400821DF3 /* 15.jpg */; };
+		13AF7CC522E08B9B00D5EEEA /* 16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC07922CE3A0F00821DF3 /* 16.jpg */; };
+		13AF7CC622E08B9B00D5EEEA /* 17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC07D22CE3A1000821DF3 /* 17.jpg */; };
+		13AF7CC722E08B9B00D5EEEA /* 18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC07E22CE3A1000821DF3 /* 18.jpg */; };
+		13AF7CC822E08B9B00D5EEEA /* 19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC08C22CE3A1500821DF3 /* 19.jpg */; };
+		13AF7CC922E08B9B00D5EEEA /* 20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13FFC07B22CE3A0F00821DF3 /* 20.jpg */; };
 		13D2986122D8A8D500DFE1CF /* Test2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13D2986022D8A8D400DFE1CF /* Test2.mp3 */; };
 		13D2986222D900C300DFE1CF /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 136CA0AF22CF3519002E278C /* 0.jpg */; };
 		13D2986422D90A2100DFE1CF /* placeholder.artist.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13D2986322D90A2100DFE1CF /* placeholder.artist.jpg */; };
@@ -331,6 +357,7 @@
 		13075DAF22B3D3D8000ED7AE /* Playable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playable.swift; sourceTree = "<group>"; };
 		13075DB222B3E1B5000ED7AE /* RemoteControllersHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteControllersHandler.swift; sourceTree = "<group>"; };
 		13075DB422B40FC7000ED7AE /* Test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Test.mp3; sourceTree = "<group>"; };
+		1307FE8223186B6A00B0B6AD /* Observable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
 		130A1ABC22B2443600ED0CA6 /* Playor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		130A1ABF22B2443600ED0CA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		130A1AC622B2443A00ED0CA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -407,6 +434,11 @@
 		136CA0C722D5C1B5002E278C /* SearchingQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingQueries.swift; sourceTree = "<group>"; };
 		136CA0CB22D77C5B002E278C /* AudioFileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileHandler.swift; sourceTree = "<group>"; };
 		136CA0CD22D77C93002E278C /* AudioFileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileHandler.swift; sourceTree = "<group>"; };
+		137D9991232196840092A264 /* AudioControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioControllerViewController.swift; sourceTree = "<group>"; };
+		137D9992232196840092A264 /* AudioControllerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioControllerViewController.xib; sourceTree = "<group>"; };
+		137D9995232196D70092A264 /* AudioControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioControllerVM.swift; sourceTree = "<group>"; };
+		137D99972321973A0092A264 /* AudioControllerNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioControllerNavigator.swift; sourceTree = "<group>"; };
+		137D999D2321A1480092A264 /* ACHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACHeaderView.xib; sourceTree = "<group>"; };
 		1380152124072780F2E12AD0 /* Pods-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.release.xcconfig"; sourceTree = "<group>"; };
 		13815BB522B79E00000AB919 /* MainTabbarNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabbarNavigator.swift; sourceTree = "<group>"; };
 		13815BB922B7A5AB000AB919 /* PlayStageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStageViewController.swift; sourceTree = "<group>"; };
@@ -480,10 +512,10 @@
 		8F7A46E9B4030F1834BFC184 /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		8FB36EFEB76A43EF71A1650B /* Pods-SoundsPlatform.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundsPlatform.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundsPlatform/Pods-SoundsPlatform.debug.xcconfig"; sourceTree = "<group>"; };
 		9689795184EC190A858DEADB /* Pods-NetworkPlatform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkPlatform.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkPlatform/Pods-NetworkPlatform.release.xcconfig"; sourceTree = "<group>"; };
-		A1C3332DF2F47A39B238E0D6 /* Pods-SoundsPlatform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundsPlatform.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundsEngine/Pods-SoundsPlatform.release.xcconfig"; sourceTree = "<group>"; };
+		A1C3332DF2F47A39B238E0D6 /* Pods-SoundsPlatform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundsPlatform.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundsPlatform/Pods-SoundsPlatform.release.xcconfig"; sourceTree = "<group>"; };
 		A2AAB7951520795BAD0F8BC8 /* Pods-RealmPlatform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmPlatform.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealmPlatform/Pods-RealmPlatform.release.xcconfig"; sourceTree = "<group>"; };
 		A4054B4E72107E06F75276F6 /* Pods-SoundsPlatform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundsPlatform.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundsPlatform/Pods-SoundsPlatform.release.xcconfig"; sourceTree = "<group>"; };
-		BB828C42021C34086F91B952 /* Pods-SoundsPlatform.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundsPlatform.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundsEngine/Pods-SoundsPlatform.debug.xcconfig"; sourceTree = "<group>"; };
+		BB828C42021C34086F91B952 /* Pods-SoundsPlatform.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundsPlatform.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundsPlatform/Pods-SoundsPlatform.debug.xcconfig"; sourceTree = "<group>"; };
 		BC9246C20892673B17E3FBE4 /* Pods-RealmPlatform.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmPlatform.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealmPlatform/Pods-RealmPlatform.debug.xcconfig"; sourceTree = "<group>"; };
 		D566E9FABB1D324DC98B4F3D /* Pods-SuggestionPlatform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuggestionPlatform.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuggestionPlatform/Pods-SuggestionPlatform.release.xcconfig"; sourceTree = "<group>"; };
 		D726038B6CE4C7782BB4C789 /* Pods-SuggestionPlatform.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuggestionPlatform.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuggestionPlatform/Pods-SuggestionPlatform.debug.xcconfig"; sourceTree = "<group>"; };
@@ -859,6 +891,7 @@
 				13075DB422B40FC7000ED7AE /* Test.mp3 */,
 				13075DB222B3E1B5000ED7AE /* RemoteControllersHandler.swift */,
 				13AAFB7322B6EBAE00A76B12 /* AppEffectSounds.swift */,
+				1307FE8223186B6A00B0B6AD /* Observable+Ext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1262,8 +1295,8 @@
 		130A1B8322B2C00700ED0CA6 /* TapFlows */ = {
 			isa = PBXGroup;
 			children = (
+				137D998E232195DC0092A264 /* Tab1 */,
 				13815BB522B79E00000AB919 /* MainTabbarNavigator.swift */,
-				13815BB422B79CDA000AB919 /* PlayStage */,
 			);
 			path = TapFlows;
 			sourceTree = "<group>";
@@ -1284,6 +1317,35 @@
 			path = Managment;
 			sourceTree = "<group>";
 		};
+		137D998E232195DC0092A264 /* Tab1 */ = {
+			isa = PBXGroup;
+			children = (
+				137D998F232196260092A264 /* AudioController */,
+				13815BB422B79CDA000AB919 /* PlayStage */,
+			);
+			path = Tab1;
+			sourceTree = "<group>";
+		};
+		137D998F232196260092A264 /* AudioController */ = {
+			isa = PBXGroup;
+			children = (
+				137D99902321964D0092A264 /* VM */,
+				137D9991232196840092A264 /* AudioControllerViewController.swift */,
+				137D9992232196840092A264 /* AudioControllerViewController.xib */,
+				137D99972321973A0092A264 /* AudioControllerNavigator.swift */,
+				137D999D2321A1480092A264 /* ACHeaderView.xib */,
+			);
+			path = AudioController;
+			sourceTree = "<group>";
+		};
+		137D99902321964D0092A264 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				137D9995232196D70092A264 /* AudioControllerVM.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
 		13815BB422B79CDA000AB919 /* PlayStage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1293,7 +1355,8 @@
 				13815BBA22B7A5AB000AB919 /* PlayStageViewController.xib */,
 				13815BBF22B7A6A6000AB919 /* PlayStageNavigator.swift */,
 			);
-			path = PlayStage;
+			name = PlayStage;
+			path = "../New Group/PlayStage";
 			sourceTree = "<group>";
 		};
 		13815BB822B7A531000AB919 /* VM */ = {
@@ -1819,19 +1882,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13AF7CC122E08B9B00D5EEEA /* 12.jpg in Resources */,
+				137D999E2321A1480092A264 /* ACHeaderView.xib in Resources */,
+				13AF7CBD22E08B9B00D5EEEA /* 8.jpg in Resources */,
+				13AF7CBE22E08B9B00D5EEEA /* 9.jpg in Resources */,
 				1302450622BC0DBC0030AD23 /* FeatureBannerCell.xib in Resources */,
 				13D2986122D8A8D500DFE1CF /* Test2.mp3 in Resources */,
+				13AF7CC622E08B9B00D5EEEA /* 17.jpg in Resources */,
 				1302455322BD821E0030AD23 /* Error.mp3 in Resources */,
+				13AF7CBC22E08B9B00D5EEEA /* 7.jpg in Resources */,
 				1302451722BCC6030030AD23 /* Splash.mp3 in Resources */,
 				13075DB722B41661000ED7AE /* Test.mp3 in Resources */,
 				13815BBC22B7A5AB000AB919 /* PlayStageViewController.xib in Resources */,
+				13AF7CC522E08B9B00D5EEEA /* 16.jpg in Resources */,
+				13AF7CC322E08B9B00D5EEEA /* 14.jpg in Resources */,
+				13AF7CC222E08B9B00D5EEEA /* 13.jpg in Resources */,
+				13AF7CB922E08B9B00D5EEEA /* 4.jpg in Resources */,
+				13AF7CC422E08B9B00D5EEEA /* 15.jpg in Resources */,
+				13AF7CB822E08B9B00D5EEEA /* 3.jpg in Resources */,
+				13AF7CB722E08B9B00D5EEEA /* 2.jpg in Resources */,
 				13D2986222D900C300DFE1CF /* 0.jpg in Resources */,
+				13AF7CC922E08B9B00D5EEEA /* 20.jpg in Resources */,
 				13D2986422D90A2100DFE1CF /* placeholder.artist.jpg in Resources */,
 				130A1ACA22B2443A00ED0CA6 /* LaunchScreen.storyboard in Resources */,
+				13AF7CC022E08B9B00D5EEEA /* 11.jpg in Resources */,
+				13AF7CB622E08B9B00D5EEEA /* 1.jpg in Resources */,
 				130A1AFD22B24F9300ED0CA6 /* SplashScreenController.xib in Resources */,
+				13AF7CBB22E08B9B00D5EEEA /* 6.jpg in Resources */,
+				13AF7CBA22E08B9B00D5EEEA /* 5.jpg in Resources */,
 				1302451122BC1DDC0030AD23 /* SongCell.xib in Resources */,
 				130A1AC722B2443A00ED0CA6 /* Assets.xcassets in Resources */,
 				13075D9522B3BFE3000ED7AE /* SignPainter.ttf in Resources */,
+				13AF7CBF22E08B9B00D5EEEA /* 10.jpg in Resources */,
+				13AF7CC722E08B9B00D5EEEA /* 18.jpg in Resources */,
+				13AF7CC822E08B9B00D5EEEA /* 19.jpg in Resources */,
+				137D9994232196840092A264 /* AudioControllerViewController.xib in Resources */,
 				1302451522BC21370030AD23 /* RemovableSongCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2056,44 +2141,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Playor/Pods-Playor-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
-				"${BUILT_PRODUCTS_DIR}/SABlurImageView/SABlurImageView.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Playor/Pods-Playor-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SABlurImageView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Playor/Pods-Playor-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Playor/Pods-Playor-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Playor/Pods-Playor-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2111,6 +2167,7 @@
 				136CA0CC22D77C5C002E278C /* AudioFileHandler.swift in Sources */,
 				13A403DC22BE0F8100B16B1A /* PlayerInfoUseCase.swift in Sources */,
 				13075DA922B3CE03000ED7AE /* SoundPlayer.swift in Sources */,
+				1307FE8323186B6A00B0B6AD /* Observable+Ext.swift in Sources */,
 				130244D922BB6C330030AD23 /* UsecaseProvider.swift in Sources */,
 				130244F122BBA8B10030AD23 /* ToolbarUsecase.swift in Sources */,
 			);
@@ -2131,17 +2188,20 @@
 				130A1B1622B2514700ED0CA6 /* UIView+RelatedSize.swift in Sources */,
 				130A1B1A22B2514700ED0CA6 /* UIColor+Hex.swift in Sources */,
 				130A1AC022B2443600ED0CA6 /* AppDelegate.swift in Sources */,
+				137D9993232196840092A264 /* AudioControllerViewController.swift in Sources */,
 				13815BC022B7A6A6000AB919 /* PlayStageNavigator.swift in Sources */,
 				130A1AEE22B24BE300ED0CA6 /* UITools.swift in Sources */,
 				130A1AFB22B24F9300ED0CA6 /* SplashScreenController.swift in Sources */,
 				130A1AFC22B24F9300ED0CA6 /* SplashNavigator.swift in Sources */,
 				130A1AF022B24BE300ED0CA6 /* ActivityIndicator.swift in Sources */,
 				130A1B1822B2514700ED0CA6 /* UIColor+Combine.swift in Sources */,
+				137D99982321973A0092A264 /* AudioControllerNavigator.swift in Sources */,
 				1386E6D922DA3C39007E119E /* SWInflateLayout.swift in Sources */,
 				130244FB22BBE4310030AD23 /* Bundle+LoadView.swift in Sources */,
 				1302451422BC21370030AD23 /* RemovableSongCell.swift in Sources */,
 				1302450D22BC1D550030AD23 /* SongCellViewModelProtocol.swift in Sources */,
 				130A1B0522B2510600ED0CA6 /* Appearance.swift in Sources */,
+				137D9996232196D70092A264 /* AudioControllerVM.swift in Sources */,
 				1302450522BC0DBC0030AD23 /* FeatureBannerCell.swift in Sources */,
 				130A1AF122B24BE300ED0CA6 /* Observable+Ext.swift in Sources */,
 				13815BBE22B7A5E9000AB919 /* PlayStageViewModel.swift in Sources */,

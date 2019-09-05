@@ -10,4 +10,5 @@ import Foundation
 import RxSwift
 public protocol AudioFileHandler {
 	func handleNewMusic(url: URL) -> Observable<Void>
+	func handleNewItunesMusic(url: URL) -> Observable<Void>
 }

@@ -55,6 +55,7 @@ enum Appearance {
 		}
 		struct Regular {
 			static let cellTitle = { return UIFont.systemFont(ofSize: 16, weight: .regular)}
+			static let controllerTitle = { return UIFont.systemFont(ofSize: 20, weight: .regular)}
 		}
 	}
 	

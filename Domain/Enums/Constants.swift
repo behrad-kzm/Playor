@@ -20,6 +20,8 @@ public enum Constants {
 			case UUID = "com.bekapps.storagekeys.authentication.info.uuid"
 		}
 		public enum User: String {
+			case musicCount = "com.bekapps.storagekeys.music.count"
+			case latestCreatedPlaylists = "com.bekapps.storagekeys.music.latestTimeForPlaylists"
 			case name = ""
 		}
 		

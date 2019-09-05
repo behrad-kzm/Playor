@@ -14,13 +14,17 @@ final class RMPlayable: Object {
 	@objc dynamic var uid = UUID().uuidString
 	@objc dynamic var format = ""
 	@objc dynamic var path = ""
-	dynamic var source: DataSourceType = .local
+	@objc dynamic var source = DataSourceType.local.rawValue
 	override static func primaryKey() -> String {
 		return "uid"
 	}
 }
 extension RMPlayable: DomainConvertibleType {
 	func asDomain() -> Playable {
+		if source == DataSourceType.iTunes.rawValue{
+			let playableURL = URL(string: path)!
+			return Playable(uid: uid, url: playableURL, format: format)
+		}
 		let pathArr = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
 		let route =  pathArr.first! + "/" + path
 		let playableURL = URL(string: route) ?? Bundle.main.url(forResource: "Splash", withExtension: "mp3")!
@@ -32,8 +36,12 @@ extension Playable: RealmRepresentable {
 		return RMPlayable.build { object in
 			object.uid = uid
 			object.format = format
-			object.path = url.lastPathComponent
-			object.source = source
+			object.source = source.rawValue
+			if source == .iTunes {
+				object.path = url.absoluteString
+			} else {
+				object.path = url.lastPathComponent
+			}
 		}
 	}
 }

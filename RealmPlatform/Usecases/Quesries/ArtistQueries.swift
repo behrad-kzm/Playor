@@ -43,7 +43,11 @@ public final class ArtistQueries: Domain.ArtistQueries {
 		return repository.query(with: predicate, sortDescriptors: sortDescriptors)
 	}
 	public 	func artists(with name: String) -> Observable<[Artist]> {
+		print("searching for artist \(name)")
 		let predicate = NSPredicate(format: "name == %@", name)
-		return repository.query(with: predicate)
+		return repository.query(with: predicate).share(replay: 1, scope: .forever).takeLast(1).do(onNext: { (artists) in
+			print("fuck u bro\(artists)")
+		})
+		
 	}
 }

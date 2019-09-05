@@ -14,6 +14,7 @@ public protocol ToolbarUsecase {
 	func setup(models: [Playable], index: Int)
 	func next()
 	func previous()
+	func getStatus() -> BehaviorSubject<PlayerStatus>
 	func getCurrent() -> BehaviorSubject<Playable?>
 	func pause()
 	func resume()

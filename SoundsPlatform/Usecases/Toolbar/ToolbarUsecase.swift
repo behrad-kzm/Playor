@@ -12,7 +12,7 @@ import Domain
 public final class ToolbarUsecase: Domain.ToolbarUsecase {
 	
 	let manager: SoundPlayer
-	
+
 	init(manager: SoundPlayer) {
 		self.manager = manager
 	}
@@ -32,7 +32,9 @@ public final class ToolbarUsecase: Domain.ToolbarUsecase {
 	public func getCurrent() -> BehaviorSubject<Playable?> {
 		return manager.currentObs
 	}
-	
+	public func getStatus() -> BehaviorSubject<PlayerStatus> {		
+		return manager.statusObs
+	}
 	public func pause() {
 		manager.pause()
 	}

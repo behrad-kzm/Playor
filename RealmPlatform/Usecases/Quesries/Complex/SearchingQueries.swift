@@ -34,6 +34,12 @@ public final class SearchingQueries: Domain.SearchingQueries {
 		return repository.query(with: predicate)
 	}
 	
+	public func getPlayable(ofURL url: URL) -> Observable<[Playable]> {
+		let repository = Repository<Playable>(configuration: configuration)
+		let predicate = NSPredicate(format: "path == %@", url.absoluteString)
+		return repository.query(with: predicate)
+	}
+	
 	public func getMusics(ofAlbum album: Album) -> Observable<[Music]> {
 		let repository = Repository<Music>(configuration: configuration)
 		let predicate = NSPredicate(format: "albumID = %@", album.uid)
@@ -41,7 +47,7 @@ public final class SearchingQueries: Domain.SearchingQueries {
 	}
 	
 	public func getMusics(ofPlaylist playlist: Playlist) -> Observable<[Music]> {
-		return Observable.deferred { [unowned self] in
+		return Observable.create { observer in
 			let realm = self.realm
 			let predicate = NSPredicate(format: "playlistID = %@", playlist.uid)
 			let objects = realm.objects(RMPlaylistTrack.self).filter(predicate).compactMap({ [unowned self](track) -> Music? in
@@ -49,9 +55,10 @@ public final class SearchingQueries: Domain.SearchingQueries {
 				let object = realm.object(ofType: RMMusic.self, forPrimaryKey: track.musicID)?.asDomain()
 				return object
 			})
-			return Observable.just(Array(objects))
-			}
-			.subscribeOn(scheduler)
+			observer.onNext(Array(objects))
+			observer.onCompleted()
+			return Disposables.create()
+		}
 	}
 	
 	public func getMusics(ofArtist artist: Artist) -> Observable<[Music]> {
@@ -59,7 +66,12 @@ public final class SearchingQueries: Domain.SearchingQueries {
 		let predicate = NSPredicate(format: "artistID = %@", artist.uid)
 		return repository.query(with: predicate)
 	}
-	
+	public func getMusicsCount(ofArtist artist: Artist) -> Int {
+		let repository = Repository<Music>(configuration: configuration)
+		let predicate = NSPredicate(format: "artistID = %@", artist.uid)
+		return repository.countAll(with: predicate)
+	}
+
 	public func getAlbum(ofMusic music: Music) -> Observable<Album?> {
 		let repository = Repository<Album>(configuration: configuration)
 		return repository.object(forPrimaryKey: music.albumID)
@@ -76,7 +88,7 @@ public final class SearchingQueries: Domain.SearchingQueries {
 	}
 	
 	public func getPlaylists(ofCollection collection: FeaturedCollections) -> Observable<[Playlist]> {
-		return Observable.deferred { [unowned self] in
+		return Observable.create { observer in
 			let realm = self.realm
 			let predicate = NSPredicate(format: "collectionID = %@", collection.uid)
 			let objects = realm.objects(RMCollectionList.self).filter(predicate).compactMap({ [unowned self](collectionList) -> Playlist? in
@@ -84,11 +96,16 @@ public final class SearchingQueries: Domain.SearchingQueries {
 				let object = realm.object(ofType: RMPlaylist.self, forPrimaryKey: collectionList.playlistID)?.asDomain()
 				return object
 			})
-			return Observable.just(Array(objects))
-			}
-			.subscribeOn(scheduler)
+			observer.onNext(Array(objects))
+			observer.onCompleted()
+			return Disposables.create()
+		}
 	}
-	
+	public func getMusics(ofPlayable playable: Playable) -> Observable<[Music]>{
+		let repository = Repository<Music>(configuration: configuration)
+		let predicate = NSPredicate(format: "playableID = %@", playable.uid)
+		return repository.query(with: predicate)
+	}
 	public func getAlbums(ofArtist artist: Artist) -> Observable<[Album]> {
 		let repository = Repository<Album>(configuration: configuration)
 		let predicate = NSPredicate(format: "artistID = %@", artist.uid)
@@ -96,17 +113,18 @@ public final class SearchingQueries: Domain.SearchingQueries {
 	}
 	
 	public func getPlaylists(Contains music: Music) -> Observable<[Playlist]> {
-		return Observable.deferred { [unowned self] in
+		return Observable.create { observer in
 			let realm = self.realm
 			let predicate = NSPredicate(format: "musicID = %@", music.uid)
-			let objects = Array(realm.objects(RMPlaylistTrack.self).filter(predicate).compactMap({ [unowned self](tracks) -> Playlist? in
+			let objects = Array(realm.objects(RMPlaylistTrack.self).filter(predicate).compactMap({ (tracks) -> Playlist? in
 				let realm = self.realm
 				let object = realm.object(ofType: RMPlaylist.self, forPrimaryKey: tracks.playlistID)?.asDomain()
 				return object
 			}))
-			return Observable.just(objects)
-			}
-			.subscribeOn(scheduler)
+			observer.onNext(objects)
+			observer.onCompleted()
+			return Disposables.create()
+		}
 	}
 	
 	public func artworks( items: [ArtworkContainedProtocol]) -> Observable<[Artwork]>{

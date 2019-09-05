@@ -38,8 +38,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="273" height="135"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.46060739436619719" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qde-ge-cYM">
-                                        <rect key="frame" x="94.5" y="43" width="84" height="49"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playor" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qde-ge-cYM">
+                                        <rect key="frame" x="0.0" y="43" width="273" height="49"/>
                                         <fontDescription key="fontDescription" name="SignPainterHouseScript" family="SignPainter HouseScript" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -55,6 +55,7 @@
                                     <constraint firstAttribute="trailing" secondItem="32B-oV-9rh" secondAttribute="trailing" id="MEk-yK-4Od"/>
                                     <constraint firstItem="VF8-ul-mnH" firstAttribute="leading" secondItem="faK-Aw-9yv" secondAttribute="leading" id="ZmP-wv-VXy"/>
                                     <constraint firstItem="VF8-ul-mnH" firstAttribute="top" secondItem="faK-Aw-9yv" secondAttribute="top" id="b6c-LK-r4Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qde-ge-cYM" secondAttribute="trailing" id="bpU-u8-IT6"/>
                                     <constraint firstItem="32B-oV-9rh" firstAttribute="top" secondItem="faK-Aw-9yv" secondAttribute="top" id="i5d-6s-NfL"/>
                                     <constraint firstAttribute="bottom" secondItem="VF8-ul-mnH" secondAttribute="bottom" id="keN-YU-1Ab"/>
                                     <constraint firstItem="Qde-ge-cYM" firstAttribute="centerY" secondItem="faK-Aw-9yv" secondAttribute="centerY" id="xrZ-1q-PFE"/>

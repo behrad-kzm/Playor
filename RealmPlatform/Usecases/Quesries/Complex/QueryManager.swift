@@ -34,13 +34,19 @@ public final class QueryManager: Domain.QueryManager {
 	}
 	
 	func setupArtworksIfNeeded(){
+		
 		if !UserDefaults.standard.bool(forKey: setupArtworks){
-			for index in 1...20 {
+			for index in 1...20 {				
 				if let imagePath = Bundle.main.path(forResource: String(index), ofType: "jpg"){
 					let uid = ArtworkPlaceholderType.banner.rawValue + "\(index)"
-					let artwork = Artwork(uid: uid, dataURL: imagePath)
+					let artwork = Artwork(uid: uid, dataURL: imagePath, source: .bundle)
+					
 					do {
-						realm.add(artwork.asRealm())
+						try realm.write {
+							realm.add(artwork.asRealm(), update: true)
+						}
+					}catch {
+						print("artwork Adding Error")
 					}
 				}
 			}

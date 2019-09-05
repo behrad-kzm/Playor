@@ -15,11 +15,12 @@ public final class ArtworkQueries: Domain.ArtworkQueries {
 		let predicate = NSPredicate(format: "uid BEGINSWITH[c] %@", type.rawValue)
 		let objects = repository.query(with: predicate)
 		return objects.map({ (artworks) -> Artwork? in
+			
 			if random {
 				return artworks.randomElement()
 			}
 			return artworks.first
-		}).filter{$0 != nil}.map{$0!}
+		}).filter{$0 != nil}.map{$0!}.take(1)
 	}
 	
 	private let repository: Repository<Artwork>

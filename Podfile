@@ -26,6 +26,7 @@ target 'Playor' do
 	pod 'RxDataSources'
 	pod 'SABlurImageView'
 	pod 'SDWebImage', '~> 5.0'
+	pod 'Stellar', :git => 'https://github.com/AugustRush/Stellar.git'
 	pod 'RAMAnimatedTabBarController'
   # Pods for Playor
 end

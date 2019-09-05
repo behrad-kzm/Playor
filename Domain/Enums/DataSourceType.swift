@@ -8,8 +8,10 @@
 
 import Foundation
 public enum DataSourceType: Int, Codable {
-	case local
-	case generated
-	case user
-	case server
+	case local = 1
+	case generated = 2
+	case user = 3
+	case server = 4
+	case bundle = 5
+	case iTunes = 6
 }

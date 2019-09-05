@@ -14,6 +14,7 @@ public protocol RemoteUsecase {
 	func setup(models: [Playable], index: Int)
 	func sufflePlay(models: [Playable])
 	func getCurrent() -> BehaviorSubject<Playable?>
+	func getStatus() -> BehaviorSubject<PlayerStatus>
 	func pause()
 	func resume()
 }

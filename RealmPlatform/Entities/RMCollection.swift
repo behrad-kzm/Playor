@@ -15,14 +15,14 @@ final class RMCollection: Object {
 	@objc dynamic var artworkID = UUID().uuidString
 	@objc dynamic var title = ""
 	@objc dynamic var creationDate = Date()
-	dynamic var source: DataSourceType = .generated
+	@objc dynamic var source = DataSourceType.generated.rawValue
 	override static func primaryKey() -> String {
 		return "uid"
 	}
 }
 extension RMCollection: DomainConvertibleType {
 	func asDomain() -> FeaturedCollections {
-		return FeaturedCollections(uid: uid, title: title, creationDate: creationDate, artworkID: artworkID, source:  source)
+		return FeaturedCollections(uid: uid, title: title, creationDate: creationDate, artworkID: artworkID, source:  DataSourceType(rawValue: source) ?? .generated)
 	}
 }
 
@@ -32,7 +32,7 @@ extension FeaturedCollections: RealmRepresentable {
 			object.uid = uid
 			object.artworkID = artworkID
 			object.title = title
-			object.source = source
+			object.source = source.rawValue
 			object.creationDate = creationDate
 		}
 	}

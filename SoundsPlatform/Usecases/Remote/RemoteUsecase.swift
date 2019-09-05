@@ -25,6 +25,10 @@ public final class RemoteUsecase: Domain.RemoteUsecase {
 		return manager.currentObs
 	}
 	
+	public func getStatus() -> BehaviorSubject<PlayerStatus>{
+		return manager.statusObs
+	}
+	
 	public func pause() {
 		manager.pause()
 	}

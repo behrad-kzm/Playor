@@ -25,6 +25,7 @@ final class Application {
 		let manager = realmUseCaseProvider.makeQueryManager()
 		self.soundsUseCaseProvider = SoundsPlatform.UseCaseProvider(manager: manager)
 		self.suggestionUseCaseProvider = SuggestionPlatform.SuggestionUsecaseProvider(queryManager: realmUseCaseProvider.makeQueryManager())
+		
   }
   
   func configureMainInterface(in window: UIWindow) {
@@ -34,6 +35,7 @@ final class Application {
 		SplashNavigator(navigationController: mainNavigationController, dataBaseServices: realmUseCaseProvider, services: networkUseCaseProvider, soundServices: soundsUseCaseProvider, suggestion: suggestionUseCaseProvider).setup()
 		guard let url = Bundle.main.url(forResource: "Test2", withExtension: "mp3") else { return }
 		let useCase = soundsUseCaseProvider.makeAudioFileHandler()
+		
 //		useCase.handleNewMusic(url: url)
 //		soundsUseCaseProvider.
   }

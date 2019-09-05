@@ -13,13 +13,14 @@ public protocol SearchingQueries {
 	//	search By Artist
 	func getMusics(ofArtist artist: Artist) -> Observable<[Music]>
 	func getAlbums(ofArtist artist: Artist) -> Observable<[Album]>
-	
+	func getMusicsCount(ofArtist artist: Artist) -> Int
 	//	search By Album
 	func getMusics(ofAlbum album: Album) -> Observable<[Music]>
 	func getArtist(ofAlbum album: Album) -> Observable<Artist?>
 	
 	//	search By Music
 	func getPlayable(ofMusic musics: [Music]) -> Observable<[Playable]>
+	func getPlayable(ofURL url: URL) -> Observable<[Playable]>
 	func getAlbum(ofMusic music: Music) -> Observable<Album?>
 	func getArtist(ofMusic music: Music) -> Observable<Artist?>
 	func getPlaylists(Contains music: Music) -> Observable<[Playlist]>
@@ -29,6 +30,8 @@ public protocol SearchingQueries {
 	//	search By Playlist
 	func getMusics(ofPlaylist playlist: Playlist) -> Observable<[Music]>
 	
+	// search By Playable
+	func getMusics(ofPlayable playable: Playable) -> Observable<[Music]>
 	//	search By Collection
 	func getPlaylists(ofCollection collection: FeaturedCollections) -> Observable<[Playlist]>
 	

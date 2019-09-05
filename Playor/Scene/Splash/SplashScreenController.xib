@@ -21,6 +21,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="backImageView" destination="fQC-0C-1gs" id="TW2-nW-KYf"/>
+                <outlet property="byBEKAppsLabel" destination="KeA-yI-UMg" id="2yf-Nk-Xmy"/>
                 <outlet property="logoLabel" destination="DrY-Wg-dDD" id="C1a-Wf-IXr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -42,16 +43,24 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By BEKApps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeA-yI-UMg">
+                            <rect key="frame" x="223" y="401.66666666666669" width="63.666666666666686" height="14.333333333333314"/>
+                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="11"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="DrY-Wg-dDD" firstAttribute="centerX" secondItem="fQC-0C-1gs" secondAttribute="centerX" id="662-H2-hdY"/>
                         <constraint firstItem="fQC-0C-1gs" firstAttribute="top" secondItem="c64-zg-XnM" secondAttribute="top" id="RDl-uj-DGq"/>
                         <constraint firstAttribute="trailing" secondItem="fQC-0C-1gs" secondAttribute="trailing" id="gW7-Da-THW"/>
+                        <constraint firstItem="KeA-yI-UMg" firstAttribute="bottom" secondItem="DrY-Wg-dDD" secondAttribute="bottom" id="gig-W4-Qhd"/>
                         <constraint firstItem="DrY-Wg-dDD" firstAttribute="leading" secondItem="c64-zg-XnM" secondAttribute="leading" id="ke6-Cb-Rs0"/>
                         <constraint firstItem="fQC-0C-1gs" firstAttribute="leading" secondItem="c64-zg-XnM" secondAttribute="leading" id="mLM-rP-yYM"/>
                         <constraint firstItem="DrY-Wg-dDD" firstAttribute="centerY" secondItem="fQC-0C-1gs" secondAttribute="centerY" id="mTb-75-KJ5"/>
                         <constraint firstAttribute="bottom" secondItem="fQC-0C-1gs" secondAttribute="bottom" id="oPW-ew-kKP"/>
+                        <constraint firstItem="KeA-yI-UMg" firstAttribute="leading" secondItem="DrY-Wg-dDD" secondAttribute="centerX" constant="16" id="sWt-i3-yGj"/>
                     </constraints>
                 </view>
             </subviews>

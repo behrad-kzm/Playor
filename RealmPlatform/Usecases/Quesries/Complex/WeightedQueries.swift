@@ -60,7 +60,7 @@ public final class WeightedQueries: Domain.WeightedQueries {
 		let startRate = rate - radius
 		let endRate = rate + radius
 		let artistsInDatabase = repository.queryAll()
-		return artistsInDatabase.map { [unowned self](artists) -> [Artist] in
+		return artistsInDatabase.map { (artists) -> [Artist] in
 			return artists.compactMap({ (artist) -> Artist? in
 				let realm = self.realm
 				let artistPredicate = NSPredicate(format: "artistID = %@ AND creationDate >= %@", artist.uid, fromDate as CVarArg)
@@ -86,7 +86,6 @@ public final class WeightedQueries: Domain.WeightedQueries {
 	
 	private func pickWightedMusic(predicate: NSPredicate) -> String {
 		
-		let realm = self.realm
 		let objects = realm.objects(RMMusic.self).filter(predicate)
 		let sumOfRates: Double = objects.sum(ofProperty: "rate")
 		let probabilitiesTuple = objects.compactMap({ (item) -> (String, Float) in
@@ -113,7 +112,6 @@ public final class WeightedQueries: Domain.WeightedQueries {
 		return randomID
 	}
 	public func topArtitst(maxCount: Int) -> Observable<[Artist]> {
-		return Observable.deferred { 
 			let realm = self.realm
 			let objects = realm.objects(RMArtist.self).compactMap { (artist) -> (RMArtist,Double) in
 				let artistPredicate = NSPredicate(format: "artistID = %@", artist.uid)
@@ -121,11 +119,11 @@ public final class WeightedQueries: Domain.WeightedQueries {
 				let avrage = musicsResult.average(ofProperty: "rate") ?? 0.0
 				return (artist, avrage)
 			}
+
 			let maxSize = objects.count > maxCount ? maxCount : objects.count
 			let sorted = objects.sorted(by: {$0.1 < $1.1})
 			let result = sorted[0..<maxSize].map {$0.0.asDomain()}
-			return Observable.just(result)
-			}
-			.subscribeOn(scheduler)
+
+		return Observable.just(result).share(replay: 1)
 	}
 }

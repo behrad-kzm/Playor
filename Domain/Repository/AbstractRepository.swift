@@ -15,6 +15,8 @@ public protocol AbstractRepository {
 						 sortDescriptors: [NSSortDescriptor]) -> Observable<[T]>
 	func save(entity: T) -> Observable<Void>
 	func delete(entity: T) -> Observable<Void>
+	func countAll() -> Int
+	func countAll(with predicate: NSPredicate) -> Int
 	func object(forPrimaryKey key: String) -> Observable<T?>
 	func delete(forPrimaryKey key: String) -> Observable<Void>
 }

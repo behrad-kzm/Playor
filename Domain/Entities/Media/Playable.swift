@@ -11,7 +11,7 @@ public struct Playable: Codable {
 	public let uid: String
 	public let format: String
 	public let url: URL
-	public let source: DataSourceType = .local
+	public var source: DataSourceType = .local
 	public init(uid: String, url: URL, format: String){
 		self.uid = uid
 		self.format = format

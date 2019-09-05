@@ -1,8 +1,8 @@
 //
-//  PlayStageNavigator.swift
+//  AudioControllerNavigator.swift
 //  Playor
 //
-//  Created by Behrad Kazemi on 6/17/19.
+//  Created by Behrad Kazemi on 9/5/19.
 //  Copyright © 2019 Behrad Kazemi. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import Domain
 import NetworkPlatform
 import RxCocoa
-class PlayStageNavigator {
+class AudioControllerNavigator {
 	
 	private let navigationController: UINavigationController
 	private let services: Domain.NetworkUseCaseProvider
@@ -22,20 +22,14 @@ class PlayStageNavigator {
 		self.navigationController = navigationController
 	}
 	
+	func show() {
+		let viewController = AudioControllerViewController(nibName: "AudioControllerViewController", bundle: nil)
+		viewController.viewModel = AudioControllerVM(navigator: self, playerUsecase: soundServices.makeFullPlayerUsecase())
+		navigationController.pushViewController(viewController, animated: true)
+	}
+	
 	func toHome(){
-		
-	}
-	
-	func toMusicPlayer(){
-		
-	}
-	
-	func toCollections(){
-		
-	}
-	
-	func toListView(){
-		
+		navigationController.popViewController(animated: true)
 	}
 	
 	func toError(error: Error) {

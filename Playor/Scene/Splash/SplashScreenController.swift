@@ -13,15 +13,16 @@ import SABlurImageView
 class SplashScreenController: UIViewController {
 	var viewModel: SplashViewModel!
 	
+	@IBOutlet weak var byBEKAppsLabel: UILabel!
 	@IBOutlet weak var backImageView: SABlurImageView!
 	@IBOutlet weak var logoLabel: UILabel!
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		assert(viewModel != nil)
 		//[TODO] do some initial works here before entering the app
-		
 
-		self.logoLabel.alpha = 0
+		logoLabel.alpha = 0
+		byBEKAppsLabel.alpha = 0
 	}
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
@@ -44,7 +45,14 @@ class SplashScreenController: UIViewController {
 				self.logoLabel.alpha = 1
 			}, completion: { [unowned self](finished) in
 				if finished {
-					Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+					
+					Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false, block: { (_) in
+						
+						UIView.animate(withDuration: 0.1, animations: {
+							self.byBEKAppsLabel.alpha = 1
+						})
+					})
+					Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false, block: { (_) in
 						self.viewModel.popLoginIfNeededOrContinue {}
 					})
 					

@@ -18,14 +18,14 @@ final class RMPlaylist: Object {
 	@objc dynamic var liked = false
 	@objc dynamic var rate = 0.0
 	@objc dynamic var playCount = 0
-	dynamic var source: DataSourceType = .generated
+	@objc dynamic var source = DataSourceType.generated.rawValue
 	override static func primaryKey() -> String {
 		return "uid"
 	}
 }
 extension RMPlaylist: DomainConvertibleType {
 	func asDomain() -> Playlist {
-		return Playlist(uid: uid, rate: rate, title: title, creationDate: creationDate, artworkID: artworkID, liked: liked, playCount: playCount, source: source)
+		return Playlist(uid: uid, rate: rate, title: title, creationDate: creationDate, artworkID: artworkID, liked: liked, playCount: playCount, source: DataSourceType(rawValue: source) ?? .generated)
 	}
 }
 
@@ -37,7 +37,7 @@ extension Playlist: RealmRepresentable {
 			object.artworkID = artworkID
 			object.title = title
 			object.playCount = playCount
-			object.source = source
+			object.source = source.rawValue
 			object.creationDate = creationDate
 			object.liked = liked
 		}

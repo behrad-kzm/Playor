@@ -43,60 +43,81 @@ public final class SuggestionUsecaseProvider: Domain.SuggestionUsecase {
 	
 	public func suggestCollection() -> Observable<FeaturedCollections> {
 		let playlist1 = suggestWellRandomizedPlaylist()
-		let playlist2 = queryManager.getSingleTableQueries().getArtistQueries().getAll().map{$0.randomElement()}.filter{$0 != nil}.flatMapLatest { [unowned self](artist) -> Observable<Playlist> in
+		let playlist2 = queryManager.getSingleTableQueries().getArtistQueries().getAll().map{$0.randomElement()}.filter{$0 != nil}.flatMapLatest { [unowned self](artist) -> Observable<Playlist?> in
 			return self.suggestWellRandomizedPlaylist(byArtist: artist!)
 		}
 		
 		let playlist3 = suggestWellRandomizedPlaylist()
-		let playlist4 = queryManager.getSingleTableQueries().getArtistQueries().getAll().map{$0.randomElement()}.filter{$0 != nil}.flatMapLatest { [unowned self](artist) -> Observable<Playlist> in
+		let playlist4 = queryManager.getSingleTableQueries().getArtistQueries().getAll().map{$0.randomElement()}.filter{$0 != nil}.flatMapLatest { [unowned self](artist) -> Observable<Playlist?> in
 			return self.suggestWellRandomizedPlaylist(byArtist: artist!)
 		}
 		let playlist5 = suggestWellRandomizedPlaylist()
-		let playlists = Observable.combineLatest([playlist1,playlist2,playlist3,playlist4,playlist5])
+		let playlists = Observable.zip([playlist1,playlist2,playlist3,playlist4,playlist5])
 		let title = CollectionNames().generateTitle()
 		let artwork = queryManager.getSingleTableQueries().getAtworksQueries().getPlaceHolder(type: .banner, random: true)
-		return Observable.combineLatest(artwork,playlists).flatMapLatest { (artwork, playlists) -> Observable<FeaturedCollections> in
+		return Observable.zip(artwork,playlists).flatMapLatest { [queryManager](artwork, playlists) -> Observable<FeaturedCollections> in
 			let collection = FeaturedCollections(uid: UUID().uuidString, title: title, creationDate: Date(), artworkID: artwork.uid)
 			let obsCollection = Observable.just(collection)
-			return self.queryManager.getIOManager().insert(FeaturedCollection: collection, Playlists: playlists).withLatestFrom(obsCollection)
+			return queryManager.getIOManager().insert(FeaturedCollection: collection, Playlists: playlists.compactMap{$0}).withLatestFrom(obsCollection)
 		}
 	}
 	
-	public func suggestWellRandomizedPlaylist() -> Observable<Playlist> {
+	public func suggestWellRandomizedPlaylist() -> Observable<Playlist?> {
 		let dates = Array(timeDistributionWeights.keys)
 		var musicIDS = [String]()
-		for _ in 0...19 {
+		let allMusicCount = UserDefaults.standard.integer(forKey: Constants.Keys.User.musicCount.rawValue)
+		
+		let counter = allMusicCount > 20 ? 20 : allMusicCount
+		
+		while musicIDS.count < counter {
 			let randomDateIndex = RandomSelection.randomNumber(probabilities: Array(timeDistributionWeights.values))
 			let selectedDateRange = randomDateIndex > 0 ? (dates[randomDateIndex], dates[randomDateIndex - 1]) : (lastTwoWeeks, Date())
-			musicIDS.append(queryManager.getWeightedQueries().pickWeightedProbabilityMusic(fromDate: selectedDateRange.0, toDate: selectedDateRange.1, uidNot: musicIDS))
+			let uid = queryManager.getWeightedQueries().pickWeightedProbabilityMusic(fromDate: selectedDateRange.0, toDate: selectedDateRange.1, uidNot: musicIDS)
+			if uid != "" {
+				musicIDS.append(uid)
+			}
 		}
+		if musicIDS.isEmpty {
+			return Observable.just(nil)
+		}
+		
 		let title = PlaylistNames(artist: nil).generateTitle()
-		return queryManager.getSingleTableQueries().getAtworksQueries().getPlaceHolder(type: .banner, random: true).flatMapLatest { [unowned self](artwork) -> Observable<Playlist> in
+		let placeHolder = queryManager.getSingleTableQueries().getAtworksQueries().getPlaceHolder(type: .banner, random: true)
+
+		return placeHolder.flatMapLatest { [queryManager](artwork) -> Observable<Playlist> in
 			let playlist = Playlist(uid: UUID().uuidString, rate: 1, title: title, creationDate: Date(), artworkID: artwork.uid, liked: false, playCount: 0, source: .generated)
 			let obsPlaylist = Observable.just(playlist)
-			return self.queryManager.getIOManager().insert(Playlist: playlist, TrackIDS: musicIDS, Artwork: artwork).withLatestFrom(obsPlaylist)
-		}
+			return queryManager.getIOManager().insert(Playlist: playlist, TrackIDS: musicIDS, Artwork: artwork).withLatestFrom(obsPlaylist)
+			}.map{Optional($0)}.startWith(nil)
 	}
 	
-	public func suggestWellRandomizedPlaylist(byArtist artist: Artist) -> Observable<Playlist> {
+	public func suggestWellRandomizedPlaylist(byArtist artist: Artist) -> Observable<Playlist?> {
 		let dates = Array(timeDistributionWeights.keys)
 		var musicIDS = [String]()
-		
-		for _ in 0...19 {
+		let allMusicCount = queryManager.getSearchingQueries().getMusicsCount(ofArtist: artist)
+		let counter = allMusicCount > 20 ? 20 : allMusicCount
+		while musicIDS.count < counter {
+			
 			let randomDateIndex = RandomSelection.randomNumber(probabilities: Array(timeDistributionWeights.values))
 			let selectedDateRange = randomDateIndex > 0 ? (dates[randomDateIndex], dates[randomDateIndex - 1]) : (lastTwoWeeks, Date())
-			musicIDS.append(queryManager.getWeightedQueries().pickWeightedProbabilityMusic(fromDate: selectedDateRange.0, toDate: selectedDateRange.1, uidNot: musicIDS, ByArtist: artist))
+			let uid = queryManager.getWeightedQueries().pickWeightedProbabilityMusic(fromDate: selectedDateRange.0, toDate: selectedDateRange.1, uidNot: musicIDS, ByArtist: artist)
+			if uid != "" {
+				musicIDS.append(uid)
+			}
+		}
+		if musicIDS.isEmpty {
+			return Observable.just(nil)
 		}
 		let title = PlaylistNames(artist: artist).generateTitle()
-		return queryManager.getSingleTableQueries().getAtworksQueries().getPlaceHolder(type: .banner, random: true).flatMapLatest { [unowned self](artwork) -> Observable<Playlist> in
+
+		return queryManager.getSingleTableQueries().getAtworksQueries().getPlaceHolder(type: .banner, random: true).flatMapLatest { [queryManager](artwork) -> Observable<Playlist> in
 			let playlist = Playlist(uid: UUID().uuidString, rate: 1, title: title, creationDate: Date(), artworkID: artwork.uid, liked: false, playCount: 0, source: .generated)
 			let obsPlaylist = Observable.just(playlist)
-			return self.queryManager.getIOManager().insert(Playlist: playlist, TrackIDS: musicIDS, Artwork: artwork).withLatestFrom(obsPlaylist)
-		}
+			return queryManager.getIOManager().insert(Playlist: playlist, TrackIDS: musicIDS, Artwork: artwork).withLatestFrom(obsPlaylist)
+		}.map{Optional($0)}.startWith(nil)
 	}
 	
 	public func suggestTopArtists() -> Observable<[Artist]> {
-		
 		return queryManager.getWeightedQueries().topArtitst(maxCount: 5)
 	}
 	

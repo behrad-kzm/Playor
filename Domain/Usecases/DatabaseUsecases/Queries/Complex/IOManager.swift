@@ -16,7 +16,7 @@ public protocol IOManager {
 	func insert(Music music: Music, PlayableModel playable: Playable, Artwork artwork: Artwork) -> Observable<Void>
 	func insert(Music music: Music,ToPlaylist playlist: Playlist) -> Observable<Void>
 	func insert(FeaturedCollection collection: FeaturedCollections, Playlists playlists: [Playlist]) -> Observable<Void>
-	
+	func getMusicCount() -> Int
 	func remove(Playlist playlist: Playlist) -> Observable<Void>
 	func remove(Album album: Album) -> Observable<Void>
 	func remove(Music music: Music) -> Observable<Void>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9DE3F529ECEBB64F9FED26B25C39A68"
+               BlueprintIdentifier = "403161057E45F7EDEC4FEF066A1920C6"
                BuildableName = "Pods_SuggestionPlatform.framework"
                BlueprintName = "Pods-SuggestionPlatform"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D9DE3F529ECEBB64F9FED26B25C39A68"
+            BlueprintIdentifier = "403161057E45F7EDEC4FEF066A1920C6"
             BuildableName = "Pods_SuggestionPlatform.framework"
             BlueprintName = "Pods-SuggestionPlatform"
             ReferencedContainer = "container:Pods.xcodeproj">

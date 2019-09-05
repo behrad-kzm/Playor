@@ -12,8 +12,8 @@ import RxSwift
 public protocol SuggestionUsecase {
 	
 	func suggestCollection() -> Observable<FeaturedCollections>
-	func suggestWellRandomizedPlaylist() -> Observable<Playlist>
-	func suggestWellRandomizedPlaylist(byArtist artist: Artist) -> Observable<Playlist>
+	func suggestWellRandomizedPlaylist() -> Observable<Playlist?>
+	func suggestWellRandomizedPlaylist(byArtist artist: Artist) -> Observable<Playlist?>
 	func suggestTopArtists() -> Observable<[Artist]>
 
 	func suggestRecentMusics() -> Observable<[Music]>
