@@ -15,17 +15,26 @@ class AudioControllerNavigator {
 	private let navigationController: UINavigationController
 	private let services: Domain.NetworkUseCaseProvider
 	private let soundServices: Domain.SoundUsecaseProvider
-	
-	init(services: Domain.NetworkUseCaseProvider, soundServices: Domain.SoundUsecaseProvider, navigationController: UINavigationController) {
+	private let dataBaseUsecase: Domain.DataBaseUsecaseProvider
+	init(services: Domain.NetworkUseCaseProvider, soundServices: Domain.SoundUsecaseProvider, navigationController: UINavigationController, dataBaseUsecase: Domain.DataBaseUsecaseProvider) {
 		self.services = services
 		self.soundServices = soundServices
 		self.navigationController = navigationController
+		self.dataBaseUsecase = dataBaseUsecase
 	}
 	
-	func show() {
+	func show(artworkPath: String, title: String, playingStatus: PlayerStatus, currentTime: TimeInterval) {
 		let viewController = AudioControllerViewController(nibName: "AudioControllerViewController", bundle: nil)
-		viewController.viewModel = AudioControllerVM(navigator: self, playerUsecase: soundServices.makeFullPlayerUsecase())
-		navigationController.pushViewController(viewController, animated: true)
+		viewController.viewModel = AudioControllerVM(navigator: self, playerUsecase: soundServices.makeFullPlayerUsecase(), dataUsecase: dataBaseUsecase.makeAudioControllerUseCase(), initialArtworkPath: artworkPath, title: title, playingStatus: playingStatus, currentTime: currentTime)
+		viewController.loadView()
+		viewController.view.layoutIfNeeded()
+		viewController.view.layoutSubviews()
+		
+		viewController.setupUI()
+		if let current = navigationController.viewControllers.last{
+			viewController.modalPresentationStyle = .overCurrentContext
+			current.present(viewController, animated: true, completion: nil)
+		}
 	}
 	
 	func toHome(){

@@ -124,6 +124,7 @@ final class PlayStageViewModel: ViewModelType {
 				return Float(item.items.count * 64)
 			})
 		}
+		
 		let current = playerUsecase.getCurrent().filter{$0 != nil}.map{$0!}
 		let currentMusic = current.flatMapLatest ({ [dataUsecase](playable) -> Observable<Music> in
 			return dataUsecase.toMusic(item: playable)
@@ -165,7 +166,10 @@ final class PlayStageViewModel: ViewModelType {
 		let backward = input.backward.do(onNext: { [playerUsecase]() in
 			playerUsecase.seekBakward(duration: 1)
 		}).asDriver()
-		return Output(isFetching: fetchingTracker.asDriver(), checkITunes: checkLibrary, collections: collections.asDriverOnErrorJustComplete(), collectionHeights: sizes.asDriverOnErrorJustComplete(), shouldBlur: shouldBlur, playAction: playAction, playPause: playPauseAction, next: playNext, forward: forward, previous: playPrevious, backward: backward, showController: showController, artworkACPath: artowrkACPath, songTitleAC: currentSongTitle, error: errorTracker.asDriver())
+		let openMusicplayer = Driver.zip(input.openController, artowrkACPath, currentSongTitle, status, Driver.just(playerUsecase.getCurrentTime())).do(onNext: { [navigator](_, path,title,statusOfSong,currentTime) in
+			navigator.toMusicPlayer(currentArtworkPath: path, title: title, playingStatus: statusOfSong, currentTime: currentTime)
+		}).mapToVoid()
+		return Output(isFetching: fetchingTracker.asDriver(), checkITunes: checkLibrary, collections: collections.asDriverOnErrorJustComplete(), collectionHeights: sizes.asDriverOnErrorJustComplete(), shouldBlur: shouldBlur, playAction: playAction, playPause: playPauseAction, next: playNext, forward: forward, previous: playPrevious, backward: backward, openMusicplayer: openMusicplayer, showController: showController, artworkACPath: artowrkACPath, songTitleAC: currentSongTitle, error: errorTracker.asDriver())
 	}
 }
 extension PlayStageViewModel {
@@ -195,6 +199,7 @@ extension PlayStageViewModel {
 		let forward: Driver<Void>
 		let previous: Driver<Void>
 		let backward: Driver<Void>
+		let openMusicplayer: Driver<Void>
 		let showController: Driver<Bool>
 		let artworkACPath: Driver<String>
 		let songTitleAC: Driver<String>

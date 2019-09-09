@@ -36,7 +36,7 @@ public class SoundPlayer: NSObject, AVAudioPlayerDelegate {
 		}
 	}
 	var currentTime: TimeInterval {
-		return audioPlayer.currentTime
+		return current != nil ? audioPlayer.currentTime : 0
 	}
 	private(set) var currentObs: BehaviorSubject<Playable?>!
 	private(set) var statusObs: BehaviorSubject<PlayerStatus>!

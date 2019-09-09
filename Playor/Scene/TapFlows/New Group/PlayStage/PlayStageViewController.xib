@@ -35,6 +35,7 @@
                 <outlet property="greatestHitsLabel" destination="5tS-bX-U8d" id="urS-aE-C6u"/>
                 <outlet property="importFromLibrary" destination="SVA-Eh-x4X" id="V5p-NW-qnS"/>
                 <outlet property="mainStack" destination="0aG-Cp-7st" id="aPi-xK-Bfh"/>
+                <outlet property="musicPlayerButton" destination="WZa-iP-FGo" id="IaW-Ts-uWZ"/>
                 <outlet property="pickedForUserLabel" destination="7dm-uu-FKR" id="qoq-2a-y5M"/>
                 <outlet property="pickedTable" destination="4WS-vv-NgQ" id="upc-kg-jwU"/>
                 <outlet property="playButton" destination="T1O-ac-kS4" id="YyV-iX-U2a"/>
@@ -76,7 +77,7 @@
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YC9-8n-YZb">
                                                                     <rect key="frame" x="98" y="0.0" width="218" height="218"/>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQt-hT-uaX">
                                                                     <rect key="frame" x="98" y="0.0" width="218" height="218"/>
@@ -85,7 +86,7 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="218" height="218"/>
                                                                         </imageView>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" red="1" green="0.1215686275" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="bottom" secondItem="xdA-XV-jLE" secondAttribute="bottom" id="0rN-rb-K3Y"/>
                                                                         <constraint firstAttribute="width" secondItem="wQt-hT-uaX" secondAttribute="height" multiplier="1:1" id="7qG-Io-Tjk"/>
@@ -93,17 +94,27 @@
                                                                         <constraint firstItem="xdA-XV-jLE" firstAttribute="top" secondItem="wQt-hT-uaX" secondAttribute="top" id="Hie-03-TCF"/>
                                                                         <constraint firstItem="xdA-XV-jLE" firstAttribute="leading" secondItem="wQt-hT-uaX" secondAttribute="leading" id="ikI-Cx-g0h"/>
                                                                     </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="artowrkACID"/>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </view>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZa-iP-FGo">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="218"/>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="wQt-hT-uaX" firstAttribute="centerX" secondItem="zCi-3p-xaW" secondAttribute="centerX" id="0Yz-om-r8R"/>
                                                                 <constraint firstItem="YC9-8n-YZb" firstAttribute="top" secondItem="wQt-hT-uaX" secondAttribute="top" id="2KK-1O-FJS"/>
+                                                                <constraint firstItem="WZa-iP-FGo" firstAttribute="leading" secondItem="zCi-3p-xaW" secondAttribute="leading" id="Aaj-2t-Vtf"/>
                                                                 <constraint firstAttribute="bottom" secondItem="wQt-hT-uaX" secondAttribute="bottom" id="CA1-t8-V1a"/>
+                                                                <constraint firstItem="WZa-iP-FGo" firstAttribute="top" secondItem="zCi-3p-xaW" secondAttribute="top" id="TYZ-Lo-7b6"/>
                                                                 <constraint firstItem="YC9-8n-YZb" firstAttribute="bottom" secondItem="wQt-hT-uaX" secondAttribute="bottom" id="bpR-MW-PSV"/>
                                                                 <constraint firstItem="YC9-8n-YZb" firstAttribute="leading" secondItem="wQt-hT-uaX" secondAttribute="leading" id="cbS-i5-bI8"/>
                                                                 <constraint firstItem="YC9-8n-YZb" firstAttribute="trailing" secondItem="wQt-hT-uaX" secondAttribute="trailing" id="iY9-ZI-ALb"/>
                                                                 <constraint firstItem="wQt-hT-uaX" firstAttribute="top" secondItem="zCi-3p-xaW" secondAttribute="top" id="lcW-Dl-lYb"/>
+                                                                <constraint firstAttribute="bottom" secondItem="WZa-iP-FGo" secondAttribute="bottom" id="tKU-Ye-YgC"/>
+                                                                <constraint firstAttribute="trailing" secondItem="WZa-iP-FGo" secondAttribute="trailing" id="w97-qw-KwK"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vef-bR-6TH">
@@ -114,6 +125,9 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="ACTitleID"/>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,6 +153,9 @@
                                                                                         <constraint firstAttribute="height" constant="32" id="Cru-te-5d4"/>
                                                                                         <constraint firstAttribute="width" secondItem="bLW-FL-LTd" secondAttribute="height" multiplier="1:1" id="IUr-mx-dZh"/>
                                                                                     </constraints>
+                                                                                    <userDefinedRuntimeAttributes>
+                                                                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="ACBackwardID"/>
+                                                                                    </userDefinedRuntimeAttributes>
                                                                                 </imageView>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN3-oP-qiM">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="161" height="48"/>
@@ -164,6 +181,9 @@
                                                                                         <constraint firstAttribute="width" secondItem="RlZ-Ka-hJQ" secondAttribute="height" multiplier="1:1" id="2Ax-Vu-I3U"/>
                                                                                         <constraint firstAttribute="height" constant="32" id="9Fm-bP-WHf"/>
                                                                                     </constraints>
+                                                                                    <userDefinedRuntimeAttributes>
+                                                                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="ACPlayID"/>
+                                                                                    </userDefinedRuntimeAttributes>
                                                                                 </imageView>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1O-ac-kS4">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="48"/>
@@ -192,6 +212,9 @@
                                                                                         <constraint firstAttribute="height" constant="32" id="A6k-6M-RiW"/>
                                                                                         <constraint firstAttribute="width" secondItem="dxn-VN-U6r" secondAttribute="height" multiplier="1:1" id="Spr-LC-BLC"/>
                                                                                     </constraints>
+                                                                                    <userDefinedRuntimeAttributes>
+                                                                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="ACForwardID"/>
+                                                                                    </userDefinedRuntimeAttributes>
                                                                                 </imageView>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aot-ov-sB6">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="161" height="48"/>

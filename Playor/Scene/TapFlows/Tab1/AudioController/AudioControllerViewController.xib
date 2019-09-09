@@ -16,8 +16,13 @@
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioControllerViewController" customModule="Playor" customModuleProvider="target">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="headerBlurView" destination="34Z-Bt-bvC" id="5vV-Md-nk9"/>
+                <outlet property="backgroundImage" destination="ZBC-PD-e5L" id="Gvi-jj-E4G"/>
+                <outlet property="blurViewContainer" destination="OSm-hY-J0s" id="9yP-e0-Dhb"/>
+                <outlet property="headerBlurView" destination="34Z-Bt-bvC" id="6ef-7V-iWA"/>
                 <outlet property="tableView" destination="AZb-6k-g0X" id="lOL-U6-svj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,9 +32,15 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AZb-6k-g0X">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_1" translatesAutoresizingMaskIntoConstraints="NO" id="ZBC-PD-e5L">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AZb-6k-g0X">
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </tableView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSm-hY-J0s">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
@@ -62,18 +73,29 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="AZb-6k-g0X" secondAttribute="bottom" id="9m0-7M-7L3"/>
                 <constraint firstItem="OSm-hY-J0s" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="D2b-2t-72g"/>
                 <constraint firstItem="AZb-6k-g0X" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FHj-4U-n3e"/>
                 <constraint firstItem="OSm-hY-J0s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="K2A-JV-9p8"/>
                 <constraint firstItem="OSm-hY-J0s" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="K31-dq-H5G"/>
+                <constraint firstItem="ZBC-PD-e5L" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KSu-SB-XW2"/>
+                <constraint firstItem="ZBC-PD-e5L" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ShE-2A-1Wm"/>
+                <constraint firstAttribute="bottom" secondItem="ZBC-PD-e5L" secondAttribute="bottom" id="Zxk-Ik-crv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AZb-6k-g0X" secondAttribute="trailing" id="b2i-eS-cUI"/>
+                <constraint firstItem="ZBC-PD-e5L" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jBC-61-eo4"/>
                 <constraint firstItem="AZb-6k-g0X" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="xPW-IN-Fjb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="fSP-C1-HMJ" secondAttribute="top" id="xWD-ca-xfz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+            </userDefinedRuntimeAttributes>
         </view>
     </objects>
+    <resources>
+        <image name="Background_1" width="690" height="1276"/>
+    </resources>
 </document>

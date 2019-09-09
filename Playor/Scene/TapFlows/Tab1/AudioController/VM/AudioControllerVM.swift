@@ -15,11 +15,14 @@ final class AudioControllerVM: ViewModelType {
 	
 	private let navigator: AudioControllerNavigator
 	private let playerUsecase: FullPlayerUsecase
-
+	private let dataUsecase: AudioControllerUseCase
+	let playerVM: ACHeaderVM
 	
-	init(navigator: AudioControllerNavigator, playerUsecase: FullPlayerUsecase) {
+	init(navigator: AudioControllerNavigator, playerUsecase: FullPlayerUsecase, dataUsecase: AudioControllerUseCase, initialArtworkPath: String, title: String, playingStatus: PlayerStatus, currentTime: TimeInterval) {
 		self.navigator = navigator
 		self.playerUsecase = playerUsecase
+		self.dataUsecase = dataUsecase
+		self.playerVM = ACHeaderVM(playerUsecase: playerUsecase, dataUsecase: dataUsecase, artowrkPath: initialArtworkPath, title: title, playingStatus: playingStatus, currentTime: currentTime)
 	}
 	
 	func transform(input: Input) -> Output {

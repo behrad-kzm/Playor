@@ -15,6 +15,7 @@ public protocol ToolbarUsecase {
 	func next()
 	func previous()
 	func getStatus() -> BehaviorSubject<PlayerStatus>
+	func getCurrentTime() -> TimeInterval
 	func getCurrent() -> BehaviorSubject<Playable?>
 	func pause()
 	func resume()

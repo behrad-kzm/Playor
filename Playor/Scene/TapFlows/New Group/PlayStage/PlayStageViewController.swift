@@ -18,6 +18,8 @@ class PlayStageViewController: UIViewController {
 	var viewModel: PlayStageViewModel!
 	let disposeBag = DisposeBag()
 	
+
+	@IBOutlet weak var musicPlayerButton: UIButton!
 	@IBOutlet weak var albumsTitleLabel: UILabel!
 	@IBOutlet weak var greatestHitsLabel: UILabel!
 	@IBOutlet weak var recentlyTitleLabel: UILabel!
@@ -91,7 +93,7 @@ class PlayStageViewController: UIViewController {
 		let backward = backwardButton.rx.controlEvent([.touchDown]).flatMapLatest{ [unowned self]_ in
 			Observable<Int64>.interval(0.3, scheduler: MainScheduler.instance).takeUntil(self.backwardButton.rx.controlEvent([.touchUpInside]))
 			}.asDriverOnErrorJustComplete().mapToVoid()
-		let input = PlayStageViewModel.Input(mainScrollViewContentOffset: scrollView.rx.contentOffset.asDriver(), albumSelection: albumCollection.rx.itemSelected.asDriver(), pickedSelection: pickedTable.rx.itemSelected.asDriver(), recentSelection: recentlyTable.rx.itemSelected.asDriver(), playPause: playButton.rx.tap.asDriver(), next: forwardButton.rx.tap.asDriver(), previous: backwardButton.rx.tap.asDriver(), forward: forward, backward: backward, openController: Driver<Void>.just(()))
+		let input = PlayStageViewModel.Input(mainScrollViewContentOffset: scrollView.rx.contentOffset.asDriver(), albumSelection: albumCollection.rx.itemSelected.asDriver(), pickedSelection: pickedTable.rx.itemSelected.asDriver(), recentSelection: recentlyTable.rx.itemSelected.asDriver(), playPause: playButton.rx.tap.asDriver(), next: forwardButton.rx.tap.asDriver(), previous: backwardButton.rx.tap.asDriver(), forward: forward, backward: backward, openController: musicPlayerButton.rx.tap.asDriver())
 		let output = viewModel.transform(input: input)
 		
 		albumCollection.register(UINib(nibName: "FeatureBannerCell", bundle: nil), forCellWithReuseIdentifier: FeatureBannerCell.cellID)
@@ -155,7 +157,8 @@ class PlayStageViewController: UIViewController {
 		[output.error.drive(),
 		 output.backward.drive(),
 		 output.forward.drive(),
-		 output.playPause.do(onNext: { [unowned self](status) in
+		 output.openMusicplayer.drive(),
+		 output.playPause.throttle(1).do(onNext: { [unowned self](status) in
 			self.playIcon.image = status != .playing ? UIImage(named: "PauseButton") : UIImage(named: "PlayButton")
 			let firstScale: CGFloat = 1.2
 			let secondScale: CGFloat = 10.0 / 12.0
@@ -174,7 +177,7 @@ class PlayStageViewController: UIViewController {
 		 output.artworkACPath.do(onNext: { [unowned self](path) in
 			self.artworkACImageView.image = UIImage(contentsOfFile: path)
 		}).drive(), output.songTitleAC.drive(songTitleACLabel.rx.text),
-								output.showController.do(onNext: { [unowned self](shouldShow) in
+								output.showController.throttle(1).do(onNext: { [unowned self](shouldShow) in
 									self.playIcon.image = UIImage(named: "PauseButton")
 									
 									self.artworkStackCellView.isHidden = !shouldShow

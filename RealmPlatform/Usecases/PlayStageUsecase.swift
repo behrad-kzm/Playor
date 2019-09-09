@@ -32,7 +32,7 @@ public final class PlayStageUsecase: Domain.PlayStageUsecase {
 		self.getArtworks = artworkQuery
 		self.getPlayables = playableQuery
 	}
-	let disposeBag = DisposeBag()
+
 	
 	public func getDataModel() -> Observable<PlayStageDataModel.Response> {
 		let albums = suggestion.getAlbums().map{Optional.some($0) }

@@ -20,5 +20,8 @@ public final class UseCaseProvider: DataBaseUsecaseProvider{
 		let queryManager = QueryManager(configuration: configuration)
 		return	PlayStageUsecase(suggestion: suggestion, autioFileHandler: fileHandler, musicQuery: queryManager.getSearchingQueries().getMusics, artworkQuery: queryManager.getSearchingQueries().artworks, playableQuery: queryManager.getSearchingQueries().getPlayable, musicFromPlayable: queryManager.getSearchingQueries().getMusics)
 	}
-
+	public func makeAudioControllerUseCase() -> Domain.AudioControllerUseCase {
+		let queryManager = QueryManager(configuration: configuration)
+		return AudioControllerUseCase(artworkQuery: queryManager.getSearchingQueries().artworks, musicFromPlayable: queryManager.getSearchingQueries().getMusics)
+	}
 }

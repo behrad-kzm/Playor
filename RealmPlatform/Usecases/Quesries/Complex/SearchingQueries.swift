@@ -104,7 +104,7 @@ public final class SearchingQueries: Domain.SearchingQueries {
 	public func getMusics(ofPlayable playable: Playable) -> Observable<[Music]>{
 		let repository = Repository<Music>(configuration: configuration)
 		let predicate = NSPredicate(format: "playableID = %@", playable.uid)
-		return repository.query(with: predicate)
+		return repository.query(with: predicate).take(1)
 	}
 	public func getAlbums(ofArtist artist: Artist) -> Observable<[Album]> {
 		let repository = Repository<Album>(configuration: configuration)

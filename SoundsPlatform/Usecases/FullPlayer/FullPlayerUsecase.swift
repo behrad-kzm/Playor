@@ -62,8 +62,8 @@ public final class FullPlayerUsecase: Domain.FullPlayerUsecase {
 	}
 	
 	public func getPlayerInformation() -> Observable<PlayerInfo> {
-		return Observable<Int>.timer(1, scheduler: MainScheduler.instance).map { [unowned self](_) -> PlayerInfo in
-			PlayerInfo(currentModel: self.manager.current, currentTime: self.manager.currentTime, isShuffle: self.manager.shuffled, repeatMode: self.manager.repeatType, status: self.manager.status)
+		return Observable<Int>.interval(1, scheduler: MainScheduler.instance).map { [unowned self](_) -> PlayerInfo in
+			return PlayerInfo(currentModel: self.manager.current, currentTime: self.manager.currentTime, isShuffle: self.manager.shuffled, repeatMode: self.manager.repeatType, status: self.manager.status)
 		}
 	}
 	

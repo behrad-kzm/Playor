@@ -11,5 +11,6 @@ import RxSwift
 
 public protocol DataBaseUsecaseProvider {
 	func makeQueryManager() -> QueryManager
-	func makePlayStageUseCase(suggestion: SuggestionUsecase, fileHandler: Domain.AudioFileHandler) -> PlayStageUsecase
+	func makePlayStageUseCase(suggestion: SuggestionUsecase, fileHandler: AudioFileHandler) -> PlayStageUsecase
+	func makeAudioControllerUseCase() -> AudioControllerUseCase
 }

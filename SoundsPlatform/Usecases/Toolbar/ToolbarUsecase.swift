@@ -28,7 +28,9 @@ public final class ToolbarUsecase: Domain.ToolbarUsecase {
 	public func previous() {
 		manager.previous()
 	}
-	
+	public func getCurrentTime() -> TimeInterval{
+		return manager.currentTime
+	}
 	public func getCurrent() -> BehaviorSubject<Playable?> {
 		return manager.currentObs
 	}
